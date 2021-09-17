@@ -8,7 +8,6 @@ const Home: React.FC = () => {
   return (
     <div
       onKeyDown={({ key }) => {
-        // console.log('key', key);
         setText(`${text}${key}`);
       }}
       tabIndex={0}
