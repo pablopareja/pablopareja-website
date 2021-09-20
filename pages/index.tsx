@@ -4,7 +4,6 @@ import Link from 'next/link';
 
 const Home: React.FC = () => {
   const [text, setText] = useState<string>('');
-
   return (
     <div
       onKeyDown={({ key }) => {
