@@ -2,6 +2,8 @@ import { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+// import AudioPlayer from 'react-h5-audio-player';
+import 'react-h5-audio-player/lib/styles.css';
 
 const Home: React.FC = () => {
   const [text, setText] = useState<string>('');
@@ -48,9 +50,21 @@ const Home: React.FC = () => {
       {text === 'secret' && (
         <>
           {/* MUSIC SECTION */}
-          <div className="w-full h-screen px-36">
+          <div className="flex w-full py-20 text-black px-36">
             <div className="flex w-1/2">
-              <img src="/images/TheSea.jpg" alt="The Sea - Pablo Pareja" />
+              <img src="/images/TheSeaCover.svg" alt="The Sea - Pablo Pareja" />
+            </div>
+            <div className="flex flex-col w-full pl-24 font-sans text-xl">
+              <h2 className="leading-6" style={{ letterSpacing: '12px' }}>
+                THE SEA
+              </h2>
+              {/* <AudioPlayer
+                className="w-full"
+                src="/audio/TheSea.mp3"
+                showJumpControls={false}
+                layout="horizontal"
+                showSkipControls={false}
+              /> */}
             </div>
           </div>
           {/* BIO SECTION */}
