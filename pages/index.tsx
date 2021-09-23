@@ -16,12 +16,12 @@ const Home: React.FC = () => {
       <Head>
         <title>Pablo Pareja</title>
       </Head>
-      <div className="pt-16 px-36">
+      <div>
         {/* FIRST SECTION: VIDEO */}
-        <div className="h-screen">
+        <div className="h-screen py-16 px-36">
           <video
             id="backgroundVideo"
-            className="absolute top-0 left-0 object-cover h-screen min-w-full"
+            className="absolute top-0 left-0 object-cover w-full h-full"
             autoPlay
             muted
             loop
@@ -37,11 +37,11 @@ const Home: React.FC = () => {
             </Link>
           </div>
           <motion.div
-            className="absolute text-2xl text-white top-1/2 left-1/2"
+            className="flex items-center justify-center w-full h-full text-2xl text-white"
             transition={{ duration: 4, time: [0, 1, 0], repeat: Infinity }}
             animate={{ opacity: [0, 1, 0] }}
           >
-            Coming soon...
+            22 - 10 - 2021
           </motion.div>
         </div>
       </div>
