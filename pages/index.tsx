@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 // import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 import Icon from 'components/icon';
 
@@ -75,7 +76,7 @@ const Home: React.FC = () => {
                   >
                     <Icon className="w-3 h-3 mx-4" icon={PLAY} />
                     <div className="text-sm leading-4" style={{ letterSpacing: '5.6px' }}>
-                      PLAY
+                      <AnchorLink href="#music">PLAY</AnchorLink>
                     </div>
                   </div>
                 </div>
