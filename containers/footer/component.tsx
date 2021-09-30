@@ -58,7 +58,7 @@ const Footer: FC<FooterProps> = () => (
         {FOLLOW_ME_LINKS.map((l) => (
           <Link href={l.url}>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-            <a className="text-white uppercase">{l.label}</a>
+            <a className="mb-3 text-white uppercase">{l.label}</a>
           </Link>
         ))}
       </div>
