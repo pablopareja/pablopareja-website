@@ -137,26 +137,29 @@ const Home: React.FC = () => {
             </div>
           </section>
           {/* BIO SECTION */}
-          <section
-            id="bio"
-            className="flex flex-col justify-center w-full h-screen text-white bg-black px-36"
-          >
-            <h1 className="text-2xl">BIO</h1>
-            <div className="w-2/3 text-base leading-10">
-              <p className="mb-8">
-                Pablo Pareja comienza sus estudios de piano en Granada para años más tarde
-                interesarse por la voz y el jazz. Estudia técnica vocal, armonía, composición y
-                piano en Roma y Málaga, así como acude a numerosos seminarios de jazz
-                internacionales donde ha recibido clases de artistas como Deborah Carter, Roberta
-                Gambarini, Norma Winstone o Michael Kanan.
-              </p>
-              <p>
-                Ha participado durante varios años como cantante de la Big Band de la Asociación de
-                Jazz de Málaga así como participado en festivales y espectáculos como el Jazzahara
-                festival o el International Jazz Day Torremolinos. En la actualidad recibe clases de
-                composición y armonía de José Carra y se centra en la creación de su primer disco
-                como compositor y cantante.
-              </p>
+          <section id="bio" className="flex flex-col w-full pb-20 text-white bg-black px-36">
+            <h1 className="pt-24 text-2xl pb-28">BIO</h1>
+            <div className="flex">
+              <Icon className="w-9 h-9" icon={DIAGONAL} />
+              <div className="w-2/3 mx-12 text-base leading-10">
+                <p className="mb-8">
+                  Pablo Pareja comienza sus estudios de piano en Granada para años más tarde
+                  interesarse por la voz y el jazz. Estudia técnica vocal, armonía, composición y
+                  piano en Roma y Málaga, así como acude a numerosos seminarios de jazz
+                  internacionales donde ha recibido clases de artistas como Deborah Carter, Roberta
+                  Gambarini, Norma Winstone o Michael Kanan.
+                </p>
+                <p>
+                  Ha participado durante varios años como cantante de la Big Band de la Asociación de
+                  Jazz de Málaga así como participado en festivales y espectáculos como el Jazzahara
+                  festival o el International Jazz Day Torremolinos. En la actualidad recibe clases de
+                  composición y armonía de José Carra y se centra en la creación de su primer disco
+                  como compositor y cantante.
+                </p>
+              </div>
+              <div className="flex items-end">
+                <Icon className="w-9 h-9" icon={DIAGONAL} />
+              </div>
             </div>
           </section>
           {/* NEWS SECTION */}
