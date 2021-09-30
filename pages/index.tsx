@@ -5,8 +5,15 @@ import { motion } from 'framer-motion';
 // import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 
+import Icon from 'components/icon';
+
+// icons
+import DIAGONAL from 'svgs/ui/diagonal.svg?sprite';
+import PLAY from 'svgs/ui/play.svg?sprite';
+
 const Home: React.FC = () => {
   const [text, setText] = useState<string>('');
+  const showSecretSections = text === 'secret';
   return (
     <div
       onKeyDown={({ key }) => {
@@ -38,19 +45,49 @@ const Home: React.FC = () => {
               </a>
             </Link>
           </div>
-          <motion.div
-            className="flex items-center justify-center w-full h-full text-2xl text-white"
-            transition={{ duration: 4, time: [0, 1, 0], repeat: Infinity }}
-            animate={{ opacity: [0, 1, 0] }}
-          >
-            22 - 10 - 2021
-          </motion.div>
+
+          {!showSecretSections && (
+            <motion.div
+              className="flex items-center justify-center w-full h-full text-2xl text-white"
+              transition={{ duration: 4, time: [0, 1, 0], repeat: Infinity }}
+              animate={{ opacity: [0, 1, 0] }}
+            >
+              22 - 10 - 2021
+            </motion.div>
+          )}
+          {showSecretSections && (
+            <div className="relative flex items-center justify-center w-full h-full text-2xl text-white">
+              <div className="flex h-12">
+                <div
+                  className="flex items-start h-full mr-6 text-3xl leading-9 text-white"
+                  style={{ letterSpacing: '18px' }}
+                >
+                  THE SEA
+                </div>
+                <div className="flex items-end h-full">
+                  <Icon className="w-9 h-9" icon={DIAGONAL} />
+                  <div
+                    role="button"
+                    tabIndex={0}
+                    className="flex items-center"
+                    onClick={() => console.log('play click')}
+                    onKeyPress={() => console.log('play click')}
+                  >
+                    <Icon className="w-3 h-3 mx-4" icon={PLAY} />
+                    <div className="text-sm leading-4" style={{ letterSpacing: '5.6px' }}>
+                      PLAY
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
-      {text === 'secret' && (
+      {showSecretSections && (
         <>
           {/* MUSIC SECTION */}
-          <div className="flex w-full py-20 text-black px-36">
+          <section id="music" className="flex w-full py-20 text-black px-36">
             <div className="flex w-1/2">
               <img src="/images/TheSeaCover.svg" alt="The Sea - Pablo Pareja" />
             </div>
@@ -66,9 +103,12 @@ const Home: React.FC = () => {
                 showSkipControls={false}
               /> */}
             </div>
-          </div>
+          </section>
           {/* BIO SECTION */}
-          <div className="flex flex-col justify-center w-full h-screen text-white bg-black px-36">
+          <section
+            id="bio"
+            className="flex flex-col justify-center w-full h-screen text-white bg-black px-36"
+          >
             <h1 className="text-2xl">BIO</h1>
             <div className="w-2/3 text-base leading-10">
               <p className="mb-8">
@@ -86,15 +126,15 @@ const Home: React.FC = () => {
                 como compositor y cantante.
               </p>
             </div>
-          </div>
+          </section>
           {/* NEWS SECTION */}
-          <div className="py-16 px-36">
+          <section id="news" className="py-16 px-36">
             <h1 className="text-2xl">NEWS</h1>
-          </div>
+          </section>
           {/* CONTACT SECTION */}
-          <div className="py-16 px-36">
+          <section id="contact" className="py-16 px-36">
             <h1 className="text-2xl">CONTACT</h1>
-          </div>
+          </section>
         </>
       )}
     </div>
