@@ -8,6 +8,8 @@ import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 import Icon from 'components/icon';
 
+import Footer from 'containers/footer';
+
 // icons
 import DIAGONAL from 'svgs/ui/diagonal.svg?sprite';
 import PLAY from 'svgs/ui/play.svg?sprite';
@@ -170,6 +172,8 @@ const Home: React.FC = () => {
           <section id="contact" className="py-16 px-36">
             <h1 className="text-2xl">CONTACT</h1>
           </section>
+          {/* FOOTER */}
+          <Footer />
         </>
       )}
     </div>
