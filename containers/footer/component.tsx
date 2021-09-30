@@ -33,7 +33,7 @@ const Footer: FC<FooterProps> = () => (
           </a>
         </Link>
         <Link href="/#events">
-          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid  */}
           <a className="leading-4 mr-14" style={{ letterSpacing: '0.6px' }}>
             EVENTS
           </a>
