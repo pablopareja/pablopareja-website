@@ -2,12 +2,13 @@ import { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-// import AudioPlayer from 'react-h5-audio-player';
-import 'react-h5-audio-player/lib/styles.css';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 
+// components
 import Icon from 'components/icon';
+import Player from 'components/player';
 
+// containers
 import Footer from 'containers/footer';
 
 // icons
@@ -100,18 +101,20 @@ const Home: React.FC = () => {
                 </div>
                 <div className="flex items-end h-full">
                   <Icon className="w-9 h-9" icon={DIAGONAL} />
-                  <div
-                    role="button"
-                    tabIndex={0}
-                    className="flex items-center"
-                    onClick={() => console.log('play click')}
-                    onKeyPress={() => console.log('play click')}
-                  >
-                    <Icon className="w-3 h-3 mx-4" icon={PLAY} />
-                    <div className="text-sm leading-4" style={{ letterSpacing: '5.6px' }}>
-                      <AnchorLink href="#music">PLAY</AnchorLink>
+                  <AnchorLink href="#music">
+                    <div
+                      role="button"
+                      tabIndex={0}
+                      className="flex items-center"
+                      onClick={() => console.log('play click')}
+                      onKeyPress={() => console.log('play click')}
+                    >
+                      <Icon className="w-3 h-3 mx-4" icon={PLAY} />
+                      <div className="text-sm leading-4" style={{ letterSpacing: '5.6px' }}>
+                        PLAY
+                      </div>
                     </div>
-                  </div>
+                  </AnchorLink>
                 </div>
               </div>
             </div>
@@ -126,16 +129,10 @@ const Home: React.FC = () => {
               <img src="/images/TheSeaCover.svg" alt="The Sea - Pablo Pareja" />
             </div>
             <div className="flex flex-col w-full pl-24 font-sans text-xl">
-              <h2 className="leading-6" style={{ letterSpacing: '12px' }}>
+              <h2 className="mb-8 leading-6" style={{ letterSpacing: '12px' }}>
                 THE SEA
               </h2>
-              {/* <AudioPlayer
-                className="w-full"
-                src="/audio/TheSea.mp3"
-                showJumpControls={false}
-                layout="horizontal"
-                showSkipControls={false}
-              /> */}
+              <Player src="/audio/TheSea.mp3" />
             </div>
           </section>
           {/* BIO SECTION */}
@@ -152,11 +149,11 @@ const Home: React.FC = () => {
                   Gambarini, Norma Winstone o Michael Kanan.
                 </p>
                 <p>
-                  Ha participado durante varios años como cantante de la Big Band de la Asociación de
-                  Jazz de Málaga así como participado en festivales y espectáculos como el Jazzahara
-                  festival o el International Jazz Day Torremolinos. En la actualidad recibe clases de
-                  composición y armonía de José Carra y se centra en la creación de su primer disco
-                  como compositor y cantante.
+                  Ha participado durante varios años como cantante de la Big Band de la Asociación
+                  de Jazz de Málaga así como participado en festivales y espectáculos como el
+                  Jazzahara festival o el International Jazz Day Torremolinos. En la actualidad
+                  recibe clases de composición y armonía de José Carra y se centra en la creación de
+                  su primer disco como compositor y cantante.
                 </p>
               </div>
               <div className="flex items-end">

@@ -27,10 +27,6 @@ export const FOLLOW_ME_LINKS: SocialMediaLink[] = [
     url: '',
   },
   {
-    label: 'Facebook',
-    url: '',
-  },
-  {
     label: 'Youtube Music',
     url: '',
   },
