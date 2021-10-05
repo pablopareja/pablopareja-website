@@ -20,25 +20,25 @@ const Footer: FC<FooterProps> = () => (
             BIO
           </a>
         </Link>
-        <Link href="/#media">
+        <Link href="/media">
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a className="leading-4 mr-14" style={{ letterSpacing: '1px' }}>
             MEDIA
           </a>
         </Link>
-        <Link href="/#news">
+        <Link href="/news">
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a className="leading-4 mr-14" style={{ letterSpacing: '1px' }}>
             NEWS
           </a>
         </Link>
-        <Link href="/#events">
+        <Link href="/events">
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid  */}
           <a className="leading-4 mr-14" style={{ letterSpacing: '1px' }}>
             EVENTS
           </a>
         </Link>
-        <Link href="/#contact">
+        <Link href="/contact">
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a className="leading-4 mr-14" style={{ letterSpacing: '1px' }}>
             CONTACT

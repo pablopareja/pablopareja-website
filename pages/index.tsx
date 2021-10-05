@@ -10,6 +10,7 @@ import Player from 'components/player';
 
 // containers
 import Footer from 'containers/footer';
+import Header from 'containers/header';
 
 // icons
 import DIAGONAL from 'svgs/ui/diagonal.svg?sprite';
@@ -32,55 +33,17 @@ const Home: React.FC = () => {
       <div>
         {/* FIRST SECTION: VIDEO */}
         <div className="h-screen py-16 px-36">
+          {showSecretSections && <Header />}
           <video
             id="backgroundVideo"
             className="absolute top-0 left-0 object-cover w-full h-full"
+            style={{ zIndex: -1 }}
             autoPlay
             muted
             loop
           >
             <source src="/videos/the_sea_teaser.mp4" type="video/mp4" />
           </video>
-          <nav className="relative flex justify-between w-full text-xs text-white">
-            <Link href="/">
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a>
-                <img src="/images/pablo_pareja_logo.svg" alt="Pablo Pareja" />
-              </a>
-            </Link>
-            {showSecretSections && (
-              <div>
-                <Link href="/#media">
-                  {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                  <a className="leading-4 ml-14" style={{ letterSpacing: '0.6px' }}>
-                    MEDIA
-                  </a>
-                </Link>
-                <Link href="/#news">
-                  {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                  <a className="leading-4 ml-14" style={{ letterSpacing: '0.6px' }}>
-                    NEWS
-                  </a>
-                </Link>
-                <Link href="/#events">
-                  {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                  <a className="leading-4 ml-14" style={{ letterSpacing: '0.6px' }}>
-                    EVENTS
-                  </a>
-                </Link>
-                <Link href="/#contact">
-                  {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                  <a
-                    className="px-10 py-2 leading-4 border border-white ml-14"
-                    style={{ letterSpacing: '0.6px' }}
-                  >
-                    CONTACT
-                  </a>
-                </Link>
-              </div>
-            )}
-          </nav>
-
           {!showSecretSections && (
             <motion.div
               className="flex items-center justify-center w-full h-full text-2xl text-white"

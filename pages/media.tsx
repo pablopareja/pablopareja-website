@@ -1,16 +1,11 @@
 import { useState } from 'react';
 import Head from 'next/head';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import AnchorLink from 'react-anchor-link-smooth-scroll';
-
-// components
-import Icon from 'components/icon';
 
 // containers
 import Footer from 'containers/footer';
+import Header from 'containers/header';
 
-const Home: React.FC = () => {
+const Media: React.FC = () => {
   const [text, setText] = useState<string>('');
   const showSecretSections = text.includes('secret');
   return (
@@ -25,54 +20,15 @@ const Home: React.FC = () => {
         <title>Pablo Pareja</title>
       </Head>
       <div>
-        {/* FIRST SECTION: VIDEO */}
         <div className="h-screen py-16 px-36">
+          {showSecretSections && <Header />}
+
           <img
             className="absolute top-0 left-0 object-cover w-full h-full"
             src="/images/mediaBackground.jpg"
             alt="Media"
             style={{ filter: 'grayscale(100%)' }}
           />
-          <nav className="relative flex justify-between w-full text-xs text-white">
-            <Link href="/">
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a>
-                <img src="/images/pablo_pareja_logo.svg" alt="Pablo Pareja" />
-              </a>
-            </Link>
-            {showSecretSections && (
-              <div>
-                <Link href="/#media">
-                  {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                  <a className="leading-4 ml-14" style={{ letterSpacing: '0.6px' }}>
-                    MEDIA
-                  </a>
-                </Link>
-                <Link href="/#news">
-                  {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                  <a className="leading-4 ml-14" style={{ letterSpacing: '0.6px' }}>
-                    NEWS
-                  </a>
-                </Link>
-                <Link href="/#events">
-                  {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                  <a className="leading-4 ml-14" style={{ letterSpacing: '0.6px' }}>
-                    EVENTS
-                  </a>
-                </Link>
-                <Link href="/#contact">
-                  {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                  <a
-                    className="px-10 py-2 leading-4 border border-white ml-14"
-                    style={{ letterSpacing: '0.6px' }}
-                  >
-                    CONTACT
-                  </a>
-                </Link>
-              </div>
-            )}
-          </nav>
-
           <div
             className="relative flex items-center justify-center w-full h-full text-3xl leading-9 text-white"
             style={{ letterSpacing: '18px' }}
@@ -113,4 +69,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default Media;
