@@ -5,42 +5,42 @@ import { FooterProps } from './types';
 import { FOLLOW_ME_LINKS } from './constants';
 
 const Footer: FC<FooterProps> = () => (
-  <footer id="footer" className="h-full py-20 bg-black px-36">
+  <footer id="footer" className="h-full py-20 text-xs bg-black px-36">
     <div className="flex items-center justify-between">
       <div className="text-white">
         <Link href="/">
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-          <a className="leading-4 mr-14" style={{ letterSpacing: '0.6px' }}>
+          <a className="leading-4 mr-14" style={{ letterSpacing: '1px' }}>
             HOME
           </a>
         </Link>
         <Link href="/#bio">
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-          <a className="leading-4 mr-14" style={{ letterSpacing: '0.6px' }}>
+          <a className="leading-4 mr-14" style={{ letterSpacing: '1px' }}>
             BIO
           </a>
         </Link>
         <Link href="/#media">
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-          <a className="leading-4 mr-14" style={{ letterSpacing: '0.6px' }}>
+          <a className="leading-4 mr-14" style={{ letterSpacing: '1px' }}>
             MEDIA
           </a>
         </Link>
         <Link href="/#news">
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-          <a className="leading-4 mr-14" style={{ letterSpacing: '0.6px' }}>
+          <a className="leading-4 mr-14" style={{ letterSpacing: '1px' }}>
             NEWS
           </a>
         </Link>
         <Link href="/#events">
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid  */}
-          <a className="leading-4 mr-14" style={{ letterSpacing: '0.6px' }}>
+          <a className="leading-4 mr-14" style={{ letterSpacing: '1px' }}>
             EVENTS
           </a>
         </Link>
         <Link href="/#contact">
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-          <a className="leading-4 mr-14" style={{ letterSpacing: '0.6px' }}>
+          <a className="leading-4 mr-14" style={{ letterSpacing: '1px' }}>
             CONTACT
           </a>
         </Link>

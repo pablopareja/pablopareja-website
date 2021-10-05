@@ -57,30 +57,34 @@ const Player: FC<PlayerProps> = ({ src }: PlayerProps) => {
           {status === Sound.status.PLAYING && 'PAUSE'}
         </div>
       </div>
-      <div className="w-full">
+      <div className="flex items-center w-full px-8">
         <Slider
           styles={{
             track: {
+              width: '100%',
               height: '1px',
             },
             thumb: {
               height: '12px',
               width: '12px',
+              border: 'solid 1px lightgrey',
             },
           }}
           axis="x"
           x={position}
           onChange={({ x }) => {
-            setStatus(Sound.status.PAUSED);
+            // setStatus(Sound.status.PAUSED);
             setAudioPosition(x);
-            // setTimeout(() => setStatus(Sound.status.PLAYING), 100);
+            setTimeout(() => setStatus(Sound.status.PLAYING), 300);
           }}
           xmin={0}
           xmax={duration}
           disabled={false}
         />
       </div>
-      <div className="" style={{ minWidth: 64 }}>{`${minElapsed}:${secElapsed}`}</div>
+      <div className="" style={{ minWidth: 64 }}>{`${minElapsed}:${
+        secElapsed > 9 ? secElapsed : `0${secElapsed}`
+      }`}</div>
     </div>
   );
 };

@@ -17,7 +17,7 @@ import PLAY from 'svgs/ui/play.svg?sprite';
 
 const Home: React.FC = () => {
   const [text, setText] = useState<string>('');
-  const showSecretSections = text === 'secret';
+  const showSecretSections = text.includes('secret');
   return (
     <div
       onKeyDown={({ key }) => {
@@ -140,7 +140,13 @@ const Home: React.FC = () => {
             <h1 className="pt-24 text-2xl pb-28">BIO</h1>
             <div className="flex">
               <Icon className="w-9 h-9" icon={DIAGONAL} />
-              <div className="w-2/3 mx-12 text-base leading-10">
+              <div
+                className="mx-12 text-xl leading-10"
+                style={{
+                  letterSpacing: '1px',
+                  maxWidth: '720px',
+                }}
+              >
                 <p className="mb-8">
                   Pablo Pareja comienza sus estudios de piano en Granada para años más tarde
                   interesarse por la voz y el jazz. Estudia técnica vocal, armonía, composición y
