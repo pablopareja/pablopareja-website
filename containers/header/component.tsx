@@ -1,14 +1,21 @@
 import { FC } from 'react';
 import Link from 'next/link';
+import cx from 'classnames';
 
 import { HeaderProps } from './types';
 
-const Header: FC<HeaderProps> = () => (
-  <nav className="relative flex justify-between w-full text-xs text-white">
+const Header: FC<HeaderProps> = ({ black }: HeaderProps) => (
+  <nav
+    className={cx({
+      'relative flex justify-between w-full text-xs font-sans': true,
+      'text-black': black,
+      'text-white': !black,
+    })}
+  >
     <Link href="/">
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
       <a>
-        <img src="/images/pablo_pareja_logo.svg" alt="Pablo Pareja" />
+        <img src={`/images/pablo_pareja_logo${black ? '_black' : ''}.svg`} alt="Pablo Pareja" />
       </a>
     </Link>
     <div>
@@ -33,7 +40,11 @@ const Header: FC<HeaderProps> = () => (
       <Link href="/contact">
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
         <a
-          className="px-10 py-2 leading-4 border border-white ml-14"
+          className={cx({
+            'px-10 py-2 leading-4 border ml-14': true,
+            'border-white': !black,
+            'border-black': black,
+          })}
           style={{ letterSpacing: '0.6px' }}
         >
           CONTACT
