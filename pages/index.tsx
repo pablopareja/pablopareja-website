@@ -96,7 +96,7 @@ const Home: React.FC = () => {
             </div>
           </section>
           {/* BIO SECTION */}
-          <section id="bio" className="flex flex-col w-full pb-20 text-white bg-black px-36">
+          <section id="bio" className="flex flex-col w-full text-white bg-black pb-36 px-36">
             <h1 className="pt-24 text-2xl pb-28">BIO</h1>
             <div className="flex">
               <Icon className="w-9 h-9" icon={DIAGONAL} />
@@ -126,14 +126,6 @@ const Home: React.FC = () => {
                 <Icon className="w-9 h-9" icon={DIAGONAL} />
               </div>
             </div>
-          </section>
-          {/* NEWS SECTION */}
-          <section id="news" className="py-16 px-36">
-            <h1 className="text-2xl">NEWS</h1>
-          </section>
-          {/* CONTACT SECTION */}
-          <section id="contact" className="py-16 px-36">
-            <h1 className="text-2xl">CONTACT</h1>
           </section>
           {/* FOOTER */}
           <Footer />

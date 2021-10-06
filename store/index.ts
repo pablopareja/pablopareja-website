@@ -1,9 +1,9 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import type { ReducersMapObject } from '@reduxjs/toolkit';
-import ui from 'store/features/ui/slice';
+import language from 'store/language/slice';
 
 const staticReducers = {
-  ui,
+  language,
 };
 
 const asyncReducers = {};

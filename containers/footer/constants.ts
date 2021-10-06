@@ -16,15 +16,15 @@ export const FOLLOW_ME_LINKS: SocialMediaLink[] = [
   },
   {
     label: 'Instagram',
-    url: '',
+    url: 'https://www.instagram.com/pabloparejatobes/',
   },
   {
     label: 'Facebook',
-    url: '',
+    url: 'https://www.facebook.com/pabloparejamusic/',
   },
   {
     label: 'Tik Tok',
-    url: '',
+    url: 'https://www.tiktok.com/@pablopareja',
   },
   {
     label: 'Youtube Music',
