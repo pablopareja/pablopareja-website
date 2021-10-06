@@ -14,12 +14,6 @@ const Footer: FC<FooterProps> = () => (
             HOME
           </a>
         </Link>
-        <Link href="/#bio">
-          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-          <a className="leading-4 mr-14" style={{ letterSpacing: '1px' }}>
-            BIO
-          </a>
-        </Link>
         <Link href="/media">
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a className="leading-4 mr-14" style={{ letterSpacing: '1px' }}>
