@@ -15,7 +15,6 @@ import { useAppDispatch, useAppSelector } from 'store/hooks';
 // types
 import { HeaderProps } from './types';
 
-
 const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
   const [isHover, toggleHover] = useState(false);
   const language = useAppSelector((state) => state.language.languageSelected);
