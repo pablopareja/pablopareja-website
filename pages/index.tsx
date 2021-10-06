@@ -17,6 +17,7 @@ import PLAY from 'svgs/ui/play.svg?sprite';
 
 const Home: React.FC = () => {
   const [text, setText] = useState<string>('');
+  const [playSound, setPlaySound] = useState<boolean>(false);
   const showSecretSections = text.includes('secret');
   return (
     <div
@@ -56,29 +57,26 @@ const Home: React.FC = () => {
             <div className="relative flex items-center justify-center w-full h-full text-2xl text-white">
               <div className="flex h-12">
                 <div
-                  className="flex items-start h-full mr-6 text-3xl leading-9 text-white"
+                  className="flex items-start h-full text-3xl leading-9 text-center text-white"
                   style={{ letterSpacing: '18px' }}
                 >
                   THE SEA
                 </div>
-                <div className="flex items-end h-full">
-                  <Icon className="w-9 h-9" icon={DIAGONAL} />
-                  <AnchorLink href="#music">
-                    <div
-                      role="button"
-                      tabIndex={0}
-                      className="flex items-center"
-                      onClick={() => console.log('play click')}
-                      onKeyPress={() => console.log('play click')}
-                    >
-                      <Icon className="w-3 h-3 mx-4" icon={PLAY} />
-                      <div className="text-sm leading-4" style={{ letterSpacing: '5.6px' }}>
-                        PLAY
-                      </div>
-                    </div>
-                  </AnchorLink>
-                </div>
               </div>
+              <AnchorLink href="#music">
+                <div
+                  role="button"
+                  tabIndex={0}
+                  className="absolute bottom-0 left-0 flex items-center justify-center w-full"
+                  onClick={() => setPlaySound(true)}
+                  onKeyPress={() => setPlaySound(true)}
+                >
+                  <Icon className="w-3 h-3 mx-4" icon={PLAY} />
+                  <div className="text-sm leading-4" style={{ letterSpacing: '5.6px' }}>
+                    PLAY
+                  </div>
+                </div>
+              </AnchorLink>
             </div>
           )}
         </div>
@@ -94,7 +92,7 @@ const Home: React.FC = () => {
               <h2 className="mb-8 leading-6" style={{ letterSpacing: '12px' }}>
                 THE SEA
               </h2>
-              <Player src="/audio/TheSea.mp3" />
+              <Player src="/audio/TheSea.mp3" autoPlay={playSound} />
             </div>
           </section>
           {/* BIO SECTION */}

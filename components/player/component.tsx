@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import Sound from 'react-sound';
 import Slider from 'react-input-slider';
 
@@ -7,15 +7,24 @@ import Icon from 'components/icon';
 
 // icons
 import PLAY from 'svgs/ui/play.svg?sprite';
+import PAUSE from 'svgs/ui/pause.svg?sprite';
 
 // types
 import { PlayerProps } from './types';
 
-const Player: FC<PlayerProps> = ({ src }: PlayerProps) => {
+const Player: FC<PlayerProps> = ({ src, autoPlay }: PlayerProps) => {
   const [status, setStatus] = useState(Sound.status.STOPPED);
   const [audioLoaded, setAudioLoaded] = useState(false);
   const [duration, setDuration] = useState(0);
   const [position, setAudioPosition] = useState(0);
+
+  useEffect(() => {
+    if (autoPlay) {
+      setStatus(Sound.status.PLAYING);
+    } else {
+      setStatus(Sound.status.PAUSED);
+    }
+  }, [autoPlay]);
 
   const onButtonClick = () => {
     if ([Sound.status.STOPPED, Sound.status.PAUSED].includes(status)) {
@@ -51,7 +60,7 @@ const Player: FC<PlayerProps> = ({ src }: PlayerProps) => {
         onClick={() => onButtonClick()}
         onKeyPress={() => onButtonClick()}
       >
-        <Icon icon={PLAY} className="w-2 h-2 mr-2" />
+        <Icon icon={status === Sound.status.PLAYING ? PAUSE : PLAY} className="w-2 h-2 mr-2" />
         <div>
           {[Sound.status.STOPPED, Sound.status.PAUSED].includes(status) && 'PLAY'}
           {status === Sound.status.PLAYING && 'PAUSE'}
