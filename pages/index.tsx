@@ -107,20 +107,36 @@ const Home: React.FC = () => {
                   maxWidth: '720px',
                 }}
               >
-                <p className="mb-8">
+                {/* <p className="mb-8">
                   Pablo Pareja comienza sus estudios de piano en Granada para años más tarde
                   interesarse por la voz y el jazz. Estudia técnica vocal, armonía, composición y
                   piano en Roma y Málaga, así como acude a numerosos seminarios de jazz
                   internacionales donde ha recibido clases de artistas como Deborah Carter, Roberta
                   Gambarini, Norma Winstone o Michael Kanan.
+                </p> */}
+                <p className="mb-8">
+                  Pablo Pareja starts studying piano in Granada focusing first on classical and
+                  contemporary classical music. Later on he starts developing an interest in film
+                  scoring and he composes his first solo piano piece at the age of 17. Years later
+                  he studies vocal technique, music theory, jazz, and composition in Rome and
+                  Málaga, attending also various international jazz seminars where he has the chance
+                  to meet renowned artists like Viktorija Pilatovic, Deborah Carter, Roberta
+                  Gambarini, Norma Winstone, Michael Kanan, and Aarong Goldberg among others.
                 </p>
                 <p>
+                  More recently Pablo has been performing with the Big Band from the Málaga Jazz
+                  Association as the lead singer as well as has participated in various festivals
+                  and concerts such as the Jazzahara festival or the International Jazz day
+                  Torremolinos. He is currently studying advanced composition with José Carra and
+                  focuses on the creation of his first album boh as a composer and singer.
+                </p>
+                {/* <p>
                   Ha participado durante varios años como cantante de la Big Band de la Asociación
                   de Jazz de Málaga así como participado en festivales y espectáculos como el
                   Jazzahara festival o el International Jazz Day Torremolinos. En la actualidad
                   recibe clases de composición y armonía de José Carra y se centra en la creación de
                   su primer disco como compositor y cantante.
-                </p>
+                </p> */}
               </div>
               <div className="flex items-end">
                 <Icon className="w-9 h-9" icon={DIAGONAL} />
