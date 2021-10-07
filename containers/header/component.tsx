@@ -14,7 +14,7 @@ import { setLanguageSelected } from 'store/language/slice';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 
 // utils
-import { Desktop, MediaContextProvider, Mobile } from 'utils/responsive';
+import { Desktop, Mobile } from 'utils/responsive';
 
 // types
 import { HeaderProps } from './types';
@@ -54,7 +54,7 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
       <Desktop includeBiggerScreens>
         <nav
           className={cx({
-            'relative flex justify-between w-full text-xs font-sans': true,
+            'relative md:px-32 md:py-16 flex justify-between w-full text-xs font-sans': true,
             'text-black': black,
             'text-white': !black,
           })}
@@ -157,7 +157,7 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
         <Link href="/contact">
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a
-            className="fixed p-2 text-xs leading-4 border bottom-4 right-4 ml-14"
+            className="fixed z-10 p-2 text-xs leading-4 border bottom-4 right-4 ml-14"
             style={{
               letterSpacing: '0.6px',
               borderColor: '#cecfd6',

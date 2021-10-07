@@ -57,12 +57,12 @@ const Home: React.FC = () => {
             </motion.div>
           )}
           {showSecretSections && (
-            <div className="relative flex items-center justify-center w-full h-full text-2xl text-white">
+            <div className="absolute top-0 left-0 flex items-center justify-center w-full h-full text-2xl text-white">
               <MediaContextProvider>
                 <Desktop includeBiggerScreens>
-                  <div className="flex h-12">
+                  <div className="flex" style={{ height: '100%' }}>
                     <div
-                      className="flex items-start h-full text-3xl leading-9 text-center text-white"
+                      className="flex items-start text-3xl leading-9 text-center text-white"
                       style={{ letterSpacing: '18px' }}
                     >
                       THE SEA
@@ -72,7 +72,7 @@ const Home: React.FC = () => {
                     <div
                       role="button"
                       tabIndex={0}
-                      className="absolute bottom-0 left-0 flex items-center justify-center w-full"
+                      className="absolute left-0 flex items-center justify-center w-full pr-4 bottom-6"
                       onClick={() => setPlaySound(true)}
                       onKeyPress={() => setPlaySound(true)}
                     >
