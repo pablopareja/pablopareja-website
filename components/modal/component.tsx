@@ -65,21 +65,15 @@ export const Modal: FC<ModalProps> = ({
                 <motion.div
                   initial={{
                     opacity: 0,
-                    y: '-60%',
-                    x: '-50%',
                   }}
                   animate={{
                     opacity: 1,
-                    y: '-50%',
-                    x: '-50%',
                     transition: {
                       delay: 0.125,
                     },
                   }}
                   exit={{
                     opacity: 0,
-                    y: '-60%',
-                    x: '-50%',
                     transition: {
                       delay: 0,
                     },
@@ -91,14 +85,13 @@ export const Modal: FC<ModalProps> = ({
                 >
                   {dismissable && (
                     <div className="relative">
-                      <button
+                      {/* <button
                         type="button"
                         onClick={onDismiss}
-                        className="absolute flex items-center px-4 py-4 text-sm text-gray-300 right-4 -top-4 focus:text-black hover:text-black"
+                        className="absolute right-0 flex items-center px-4 py-4 text-sm -top-0"
                       >
-                        <span className="text-xs">Close</span>
                         <Icon icon={CLOSE_SVG} className="inline-block w-3 h-3 ml-2 text-black" />
-                      </button>
+                      </button> */}
                     </div>
                   )}
 

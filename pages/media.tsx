@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import Head from 'next/head';
-import Modal from 'react-modal';
 
 // containers
 import Footer from 'containers/footer';
 import Header from 'containers/header';
+
+// components
+import Modal from 'components/modal';
 
 // types
 import { ImageData } from 'types';
@@ -32,9 +34,8 @@ const Media: React.FC = () => {
         <title>Pablo Pareja</title>
       </Head>
       <div>
-        <div className="h-screen py-16 px-36">
+        <div className="relative h-screen">
           {showSecretSections && <Header />}
-
           <img
             className="absolute top-0 left-0 object-cover w-full h-full"
             src="/images/mediaBackground.jpg"
@@ -42,7 +43,7 @@ const Media: React.FC = () => {
             style={{ filter: 'grayscale(100%)', zIndex: -1 }}
           />
           <div
-            className="relative flex items-center justify-center w-full h-full text-3xl leading-9 text-white"
+            className="absolute top-0 left-0 flex items-center justify-center w-full h-full text-3xl leading-9 text-white"
             style={{ letterSpacing: '18px' }}
           >
             MEDIA
@@ -145,20 +146,14 @@ const Media: React.FC = () => {
           </div>
         )}
         <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={() => setModalIsOpen(false)}
-          closeTimeoutMS={500}
-          style={{
-            top: '50%',
-            left: '50%',
-            right: 'auto',
-            bottom: 'auto',
-            marginRight: '-50%',
-            transform: 'translate(-50%, -50%)',
-          }}
+          size="wide"
+          title=""
+          open={modalIsOpen}
+          onDismiss={() => setModalIsOpen(false)}
+          dismissable
         >
-          <div className="flex items-center justify-center w-full h-full">
-            {modalImage && <img className="h-full" src={modalImage?.src} alt={modalImage?.alt} />}
+          <div className="flex items-center justify-center w-full h-full overflow-hidden">
+            {modalImage && <img className="w-full" src={modalImage?.src} alt={modalImage?.alt} />}
           </div>
         </Modal>
         <Footer />
