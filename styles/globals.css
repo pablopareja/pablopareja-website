@@ -21,10 +21,6 @@
     outline: none;
   }
 
-  button {
-    outline: none;
-  }
-
   .ReactModal__Overlay {
     opacity: 0;
     transition: opacity 500ms ease-in-out;
@@ -37,8 +33,6 @@
   .ReactModal__Overlay--before-close{
     opacity: 0;
   }
-
-
 }
 
 @layer utilities {

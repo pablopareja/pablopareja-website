@@ -6,6 +6,7 @@ export const HAMBURGER_MENU_STYLES = {
     height: '28px',
     right: '32px',
     top: '32px',
+    outline: 'none',
   },
   bmBurgerBars: {
     background: '#cecfd6',
@@ -16,9 +17,11 @@ export const HAMBURGER_MENU_STYLES = {
   bmCrossButton: {
     height: '24px',
     width: '24px',
+    outline: 'none',
   },
   bmCross: {
     background: '#ffffff',
+    outline: 'none',
   },
   bmMenuWrap: {
     position: 'fixed',
@@ -33,7 +36,7 @@ export const HAMBURGER_MENU_STYLES = {
     color: '#b8b7ad',
     padding: '0.8em',
     display: 'flex',
-    'flex-direction': 'column',
+    flexDirection: 'column',
   },
   bmItem: {
     display: 'inline-block',

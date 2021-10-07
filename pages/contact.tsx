@@ -26,6 +26,7 @@ const Contact: React.FC = () => {
         <title>Pablo Pareja</title>
       </Head>
       <div>
+        {showSecretSections && <Header black />}
         <div className="h-screen py-16 px-36">
           <img
             className="absolute top-0 left-0 object-cover w-full h-full"
@@ -33,17 +34,6 @@ const Contact: React.FC = () => {
             alt="Media"
             style={{ filter: 'grayscale(100%)', zIndex: -1 }}
           />
-          {/* <div
-            className="absolute top-0 left-0 object-cover w-full h-full pointer-events-none"
-            style={{ backdropFilter: 'blur(1px)', zIndex: -1 }}
-          /> */}
-          {showSecretSections && <Header black />}
-          {/* <div
-            className="relative flex items-center justify-center w-full h-full text-3xl leading-9 text-white"
-            style={{ letterSpacing: '18px' }}
-          >
-            CONTACT
-          </div> */}
         </div>
         {showSecretSections && (
           <div className="relative flex p-56 text-2xl text-white bg-black">

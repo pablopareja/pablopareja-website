@@ -50,7 +50,7 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
   };
 
   return (
-    <MediaContextProvider>
+    <div>
       <Desktop includeBiggerScreens>
         <nav
           className={cx({
@@ -168,7 +168,7 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
           </a>
         </Link>
       </Mobile>
-    </MediaContextProvider>
+    </div>
   );
 };
 

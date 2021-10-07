@@ -8,6 +8,7 @@ import Modal from 'react-modal';
 import store from 'store';
 
 import 'styles/globals.css';
+import { MediaContextProvider, Mobile } from 'utils/responsive';
 
 const queryClient = new QueryClient();
 
@@ -19,7 +20,11 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => (
     <QueryClientProvider client={queryClient}>
       <Hydrate state={pageProps.dehydratedState}>
         <OverlayProvider>
-          <Component {...pageProps} />
+          <MediaContextProvider>
+            <Mobile includeBiggerScreens>
+              <Component {...pageProps} />
+            </Mobile>
+          </MediaContextProvider>
         </OverlayProvider>
       </Hydrate>
     </QueryClientProvider>
