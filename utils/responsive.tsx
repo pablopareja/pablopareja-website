@@ -29,8 +29,8 @@ const Desktop: React.FC<ResponsiveProps> = ({
   includeBiggerScreens = true,
 }: ResponsiveProps) => (
   <Media
-    {...(includeBiggerScreens && { greaterThanOrEqual: 'md' })}
-    {...(!includeBiggerScreens && { at: 'md' })}
+    {...(includeBiggerScreens && { greaterThanOrEqual: 'sm' })}
+    {...(!includeBiggerScreens && { at: 'sm' })}
     {...(!!className && { className })}
   >
     {children}

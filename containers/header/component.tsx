@@ -14,10 +14,13 @@ import { setLanguageSelected } from 'store/language/slice';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 
 // utils
+import { Desktop, MediaContextProvider, Mobile } from 'utils/responsive';
 
 // types
-import { Desktop, MediaContextProvider, Mobile } from 'out/utils/responsive';
 import { HeaderProps } from './types';
+
+// local constants
+import { HAMBURGER_MENU_STYLES } from './constants';
 
 const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
   const [isHover, toggleHover] = useState(false);
@@ -137,20 +140,33 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
         </nav>
       </Desktop>
       <Mobile>
-        <Menu>
+        <Menu styles={HAMBURGER_MENU_STYLES} right>
           <Link href="/media">
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-            <a className="leading-4 ml-14" style={{ letterSpacing: '0.6px' }}>
+            <a className="my-8 leading-4 text-white" style={{ letterSpacing: '0.6px' }}>
               MEDIA
             </a>
           </Link>
           <Link href="/events">
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-            <a className="leading-4 ml-14" style={{ letterSpacing: '0.6px' }}>
+            <a className="leading-4 text-white" style={{ letterSpacing: '0.6px' }}>
               EVENTS
             </a>
           </Link>
         </Menu>
+        <Link href="/contact">
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+          <a
+            className="fixed p-2 text-xs leading-4 border bottom-4 right-4 ml-14"
+            style={{
+              letterSpacing: '0.6px',
+              borderColor: '#cecfd6',
+              color: '#cecfd6',
+            }}
+          >
+            CONTACT
+          </a>
+        </Link>
       </Mobile>
     </MediaContextProvider>
   );

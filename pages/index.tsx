@@ -15,6 +15,9 @@ import Header from 'containers/header';
 import DIAGONAL from 'svgs/ui/diagonal.svg?sprite';
 import PLAY from 'svgs/ui/play.svg?sprite';
 
+// utils
+import { Desktop, MediaContextProvider, Mobile } from 'utils/responsive';
+
 const Home: React.FC = () => {
   const [text, setText] = useState<string>('');
   const [playSound, setPlaySound] = useState<boolean>(false);
@@ -31,9 +34,9 @@ const Home: React.FC = () => {
         <title>Pablo Pareja</title>
       </Head>
       <div>
+        {showSecretSections && <Header />}
         {/* FIRST SECTION: VIDEO */}
         <div className="h-screen py-12 md:py-16 md:px-36">
-          {showSecretSections && <Header />}
           <video
             id="backgroundVideo"
             className="absolute top-0 left-0 object-cover w-full h-full"
@@ -55,28 +58,56 @@ const Home: React.FC = () => {
           )}
           {showSecretSections && (
             <div className="relative flex items-center justify-center w-full h-full text-2xl text-white">
-              <div className="flex h-12">
-                <div
-                  className="flex items-start h-full text-3xl leading-9 text-center text-white"
-                  style={{ letterSpacing: '18px' }}
-                >
-                  THE SEA
-                </div>
-              </div>
-              <AnchorLink href="#music">
-                <div
-                  role="button"
-                  tabIndex={0}
-                  className="absolute bottom-0 left-0 flex items-center justify-center w-full"
-                  onClick={() => setPlaySound(true)}
-                  onKeyPress={() => setPlaySound(true)}
-                >
-                  <Icon className="w-3 h-3 mx-4" icon={PLAY} />
-                  <div className="text-sm leading-4" style={{ letterSpacing: '5.6px' }}>
-                    PLAY
+              <MediaContextProvider>
+                <Desktop includeBiggerScreens>
+                  <div className="flex h-12">
+                    <div
+                      className="flex items-start h-full text-3xl leading-9 text-center text-white"
+                      style={{ letterSpacing: '18px' }}
+                    >
+                      THE SEA
+                    </div>
                   </div>
-                </div>
-              </AnchorLink>
+                  <AnchorLink href="#music">
+                    <div
+                      role="button"
+                      tabIndex={0}
+                      className="absolute bottom-0 left-0 flex items-center justify-center w-full"
+                      onClick={() => setPlaySound(true)}
+                      onKeyPress={() => setPlaySound(true)}
+                    >
+                      <Icon className="w-3 h-3 mx-4" icon={PLAY} />
+                      <div className="text-sm leading-4" style={{ letterSpacing: '5.6px' }}>
+                        PLAY
+                      </div>
+                    </div>
+                  </AnchorLink>
+                </Desktop>
+                <Mobile>
+                  <div className="flex flex-col h-12">
+                    <div
+                      className="flex items-start h-full text-3xl leading-9 text-center text-white"
+                      style={{ letterSpacing: '18px' }}
+                    >
+                      THE SEA
+                    </div>
+                    <AnchorLink href="#music">
+                      <div
+                        role="button"
+                        tabIndex={0}
+                        className="flex items-center w-full mt-6 ml-12"
+                        onClick={() => setPlaySound(true)}
+                        onKeyPress={() => setPlaySound(true)}
+                      >
+                        <Icon className="w-3 h-3 mx-4" icon={PLAY} />
+                        <div className="text-sm leading-4" style={{ letterSpacing: '5.6px' }}>
+                          PLAY
+                        </div>
+                      </div>
+                    </AnchorLink>
+                  </div>
+                </Mobile>
+              </MediaContextProvider>
             </div>
           )}
         </div>

@@ -17,6 +17,13 @@
   input[type='search']::-webkit-search-results-decoration {
     -webkit-appearance: none;
   }
+  input[type='button'] {
+    outline: none;
+  }
+
+  button {
+    outline: none;
+  }
 
   .ReactModal__Overlay {
     opacity: 0;
@@ -30,6 +37,8 @@
   .ReactModal__Overlay--before-close{
     opacity: 0;
   }
+
+
 }
 
 @layer utilities {
