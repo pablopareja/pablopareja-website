@@ -2,6 +2,7 @@ import { FC, useState } from 'react';
 import Link from 'next/link';
 import cx from 'classnames';
 import { motion } from 'framer-motion';
+import { slide as Menu } from 'react-burger-menu';
 
 // constants
 import { LANGUAGES } from 'components/constants';
@@ -12,7 +13,10 @@ import { setLanguageSelected } from 'store/language/slice';
 // hooks
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 
+// utils
+
 // types
+import { Desktop, MediaContextProvider, Mobile } from 'out/utils/responsive';
 import { HeaderProps } from './types';
 
 const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
@@ -43,89 +47,112 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
   };
 
   return (
-    <nav
-      className={cx({
-        'relative flex justify-between w-full text-xs font-sans': true,
-        'text-black': black,
-        'text-white': !black,
-      })}
-    >
-      <Link href="/">
-        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <a>
-          <img src={`/images/pablo_pareja_logo${black ? '_black' : ''}.svg`} alt="Pablo Pareja" />
-        </a>
-      </Link>
-      <div className="flex items-center">
-        <Link href="/media">
-          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-          <a className="leading-4 ml-14" style={{ letterSpacing: '0.6px' }}>
-            MEDIA
-          </a>
-        </Link>
-        <Link href="/events">
-          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-          <a className="leading-4 ml-14" style={{ letterSpacing: '0.6px' }}>
-            EVENTS
-          </a>
-        </Link>
-        <motion.div
-          className="uppercase ml-14"
-          onHoverStart={() => toggleHover(!isHover)}
-          onHoverEnd={() => toggleHover(!isHover)}
+    <MediaContextProvider>
+      <Desktop includeBiggerScreens>
+        <nav
+          className={cx({
+            'relative flex justify-between w-full text-xs font-sans': true,
+            'text-black': black,
+            'text-white': !black,
+          })}
         >
-          {language.label}
-          <motion.div
-            className="absolute"
-            style={{ transformOrigin: '50% -30px' }}
-            initial="exit"
-            animate={isHover ? 'enter' : 'exit'}
-            variants={subMenuAnimate}
-          >
-            <div
-              className={cx({
-                'px-8 py-5 border mt-8': true,
-                'border-white': !black,
-                'border-black': black,
-              })}
+          <Link href="/">
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+            <a>
+              <img
+                src={`/images/pablo_pareja_logo${black ? '_black' : ''}.svg`}
+                alt="Pablo Pareja"
+              />
+            </a>
+          </Link>
+          <div className="flex items-center">
+            <Link href="/media">
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+              <a className="leading-4 ml-14" style={{ letterSpacing: '0.6px' }}>
+                MEDIA
+              </a>
+            </Link>
+            <Link href="/events">
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+              <a className="leading-4 ml-14" style={{ letterSpacing: '0.6px' }}>
+                EVENTS
+              </a>
+            </Link>
+            <motion.div
+              className="uppercase ml-14"
+              onHoverStart={() => toggleHover(!isHover)}
+              onHoverEnd={() => toggleHover(!isHover)}
             >
-              {LANGUAGES.map((l) => (
+              {language.label}
+              <motion.div
+                className="absolute"
+                style={{ transformOrigin: '50% -30px' }}
+                initial="exit"
+                animate={isHover ? 'enter' : 'exit'}
+                variants={subMenuAnimate}
+              >
                 <div
-                  key={l.id}
-                  className="mb-2 text-xs leading-4 uppercase"
-                  style={{ letterSpacing: '0.6px' }}
-                  role="button"
-                  tabIndex={0}
-                  onClick={() => {
-                    toggleHover(!isHover);
-                    dispatch(setLanguageSelected(l));
-                  }}
-                  onKeyPress={() => {
-                    toggleHover(!isHover);
-                    dispatch(setLanguageSelected(l));
-                  }}
+                  className={cx({
+                    'px-8 py-5 border mt-8': true,
+                    'border-white': !black,
+                    'border-black': black,
+                  })}
                 >
-                  {l.label}
+                  {LANGUAGES.map((l) => (
+                    <div
+                      key={l.id}
+                      className="mb-2 text-xs leading-4 uppercase"
+                      style={{ letterSpacing: '0.6px' }}
+                      role="button"
+                      tabIndex={0}
+                      onClick={() => {
+                        toggleHover(!isHover);
+                        dispatch(setLanguageSelected(l));
+                      }}
+                      onKeyPress={() => {
+                        toggleHover(!isHover);
+                        dispatch(setLanguageSelected(l));
+                      }}
+                    >
+                      {l.label}
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </motion.div>
-        </motion.div>
-        <Link href="/contact">
-          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-          <a
-            className={cx({
-              'px-10 py-2 leading-4 border ml-14': true,
-              'border-white': !black,
-              'border-black': black,
-            })}
-            style={{ letterSpacing: '0.6px' }}
-          >
-            CONTACT
-          </a>
-        </Link>
-      </div>
-    </nav>
+              </motion.div>
+            </motion.div>
+            <Link href="/contact">
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+              <a
+                className={cx({
+                  'px-10 py-2 leading-4 border ml-14': true,
+                  'border-white': !black,
+                  'border-black': black,
+                })}
+                style={{ letterSpacing: '0.6px' }}
+              >
+                CONTACT
+              </a>
+            </Link>
+          </div>
+        </nav>
+      </Desktop>
+      <Mobile>
+        <Menu>
+          <Link href="/media">
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+            <a className="leading-4 ml-14" style={{ letterSpacing: '0.6px' }}>
+              MEDIA
+            </a>
+          </Link>
+          <Link href="/events">
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+            <a className="leading-4 ml-14" style={{ letterSpacing: '0.6px' }}>
+              EVENTS
+            </a>
+          </Link>
+        </Menu>
+      </Mobile>
+    </MediaContextProvider>
   );
 };
 

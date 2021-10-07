@@ -84,24 +84,35 @@ const Home: React.FC = () => {
       {showSecretSections && (
         <>
           {/* MUSIC SECTION */}
-          <section id="music" className="flex w-full py-20 text-black px-36">
-            <div className="flex w-1/2">
+          <section
+            id="music"
+            className="flex-col w-full py-12 text-black md:py-20 md:flex-row md:flex md:px-36"
+          >
+            <div className="flex w-full px-6 py-4 md:p-0 md:mx-8 md:w-1/2">
               <img src="/images/TheSeaCover.svg" alt="The Sea - Pablo Pareja" />
             </div>
-            <div className="flex flex-col w-full pl-24 font-sans text-xl">
-              <h2 className="mb-8 leading-6" style={{ letterSpacing: '12px' }}>
+            <div className="flex flex-col w-full px-6 font-sans text-xl md:pr-0 md:pl-24">
+              <h2
+                className="mb-6 leading-6 text-center md:mb-8 md:text-left"
+                style={{ letterSpacing: '12px' }}
+              >
                 THE SEA
               </h2>
               <Player src="/audio/TheSea.mp3" autoPlay={playSound} />
             </div>
           </section>
           {/* BIO SECTION */}
-          <section id="bio" className="flex flex-col w-full text-white bg-black pb-36 px-36">
-            <h1 className="pt-24 text-2xl pb-28">BIO</h1>
+          <section
+            id="bio"
+            className="flex flex-col w-full px-6 text-white bg-black md:pb-36 md:px-36"
+          >
+            <h1 className="pt-24 pb-4 text-xl md:text-2xl md:pb-28">BIO</h1>
             <div className="flex">
-              <Icon className="w-9 h-9" icon={DIAGONAL} />
+              <div className="flex flex-start">
+                <Icon className="w-6 h-6 mr-3 md:w-9 md:h-9 md:mr-0" icon={DIAGONAL} />
+              </div>
               <div
-                className="mx-12 text-xl leading-10"
+                className="leading-7 md:leading-10 md:text-xl md:mx-12"
                 style={{
                   letterSpacing: '1px',
                   maxWidth: '720px',
@@ -139,7 +150,7 @@ const Home: React.FC = () => {
                 </p> */}
               </div>
               <div className="flex items-end">
-                <Icon className="w-9 h-9" icon={DIAGONAL} />
+                <Icon className="w-6 h-6 ml-2 md:w-9 md:h-9 md:ml-0" icon={DIAGONAL} />
               </div>
             </div>
           </section>
