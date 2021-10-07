@@ -32,7 +32,7 @@ const Home: React.FC = () => {
       </Head>
       <div>
         {/* FIRST SECTION: VIDEO */}
-        <div className="h-screen py-16 px-36">
+        <div className="h-screen py-12 md:py-16 md:px-36">
           {showSecretSections && <Header />}
           <video
             id="backgroundVideo"
@@ -88,7 +88,7 @@ const Home: React.FC = () => {
             id="music"
             className="flex-col w-full py-12 text-black md:py-20 md:flex-row md:flex md:px-36"
           >
-            <div className="flex w-full px-6 py-4 md:p-0 md:mx-8 md:w-1/2">
+            <div className="flex w-full px-6 pt-4 pb-8 md:p-0 md:mx-8 md:w-1/2">
               <img src="/images/TheSeaCover.svg" alt="The Sea - Pablo Pareja" />
             </div>
             <div className="flex flex-col w-full px-6 font-sans text-xl md:pr-0 md:pl-24">
@@ -104,9 +104,9 @@ const Home: React.FC = () => {
           {/* BIO SECTION */}
           <section
             id="bio"
-            className="flex flex-col w-full px-6 text-white bg-black md:pb-36 md:px-36"
+            className="flex flex-col w-full px-6 py-24 text-white bg-black md:pb-36 md:px-36"
           >
-            <h1 className="pt-24 pb-4 text-xl md:text-2xl md:pb-28">BIO</h1>
+            <h1 className="pb-4 text-xl md:text-2xl md:pb-28">BIO</h1>
             <div className="flex">
               <div className="flex flex-start">
                 <Icon className="w-6 h-6 mr-3 md:w-9 md:h-9 md:mr-0" icon={DIAGONAL} />
