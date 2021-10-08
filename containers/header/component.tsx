@@ -106,7 +106,7 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
       <Desktop includeBiggerScreens>
         <nav
           className={cx({
-            'relative md:px-32 md:py-16 flex justify-between w-full text-xs font-sans': true,
+            'relative md:px-32 md:py-16 flex justify-between w-full text-xs font-sans z-10': true,
             'text-black': black,
             'text-white': !black,
           })}

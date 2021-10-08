@@ -83,8 +83,8 @@ const Contact: React.FC = () => {
       </Head>
       <div>
         <Desktop includeBiggerScreens>
-          {showSecretSections && <Header black />}
           <div className="h-screen">
+            {showSecretSections && <Header black />}
             <img
               className="absolute top-0 left-0 object-cover w-full h-full"
               src="/images/PabloParejaPianoPlaying.jpg"
