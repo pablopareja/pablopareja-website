@@ -37,7 +37,7 @@ const Footer: FC<FooterProps> = () => (
     <div>
       <div className="mt-6 text-white underline md:mt-10">FOLLOW ME:</div>
       <div className="grid grid-cols-2 pb-6 mt-4 border-b border-white md:mt-10 md:pb-10 md:grid-cols-4">
-        {FOLLOW_ME_LINKS.map((l) => (
+        {FOLLOW_ME_LINKS.filter((l) => l.visible).map((l) => (
           <Link href={l.url} key={`follow-me-link-${l.label}`}>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a className="mb-1 text-white uppercase md:mb-3">{l.label}</a>
