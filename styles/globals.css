@@ -20,6 +20,10 @@
   input[type='button'] {
     outline: none;
   }
+
+  button:focus {
+    outline: none;
+  }
 }
 
 @layer utilities {

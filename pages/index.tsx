@@ -1,15 +1,22 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { motion } from 'framer-motion';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
+import { useInView } from 'react-intersection-observer';
 
 // components
 import Icon from 'components/icon';
 import Player from 'components/player';
 
+// slices
+import { setIsWhiteBackground } from 'store/common/slice';
+
 // containers
 import Footer from 'containers/footer';
 import Header from 'containers/header';
+
+// hooks
+import { useAppDispatch } from 'store/hooks';
 
 // icons
 import DIAGONAL from 'svgs/ui/diagonal.svg?sprite';
@@ -22,6 +29,14 @@ const Home: React.FC = () => {
   const [text, setText] = useState<string>('');
   const [playSound, setPlaySound] = useState<boolean>(false);
   const showSecretSections = text.includes('secret');
+  const { ref: whiteSectionRef, inView: whiteSectionInView } = useInView({ threshold: 0.1 });
+  const { ref: blackSectionRef, inView: blackSectionInView } = useInView({ threshold: 0.1 });
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(setIsWhiteBackground(whiteSectionInView && !blackSectionInView));
+  }, [whiteSectionInView, blackSectionInView]);
+
   return (
     <div
       onKeyDown={({ key }) => {
@@ -117,6 +132,7 @@ const Home: React.FC = () => {
           {/* MUSIC SECTION */}
           <section
             id="music"
+            ref={whiteSectionRef}
             className="flex-col w-full py-12 text-black md:py-20 md:flex-row md:flex md:px-36"
           >
             <div className="flex w-full px-6 pt-4 pb-8 md:p-0 md:mx-8 md:w-1/2">
@@ -135,6 +151,7 @@ const Home: React.FC = () => {
           {/* BIO SECTION */}
           <section
             id="bio"
+            ref={blackSectionRef}
             className="flex flex-col w-full px-6 py-24 text-white bg-black md:pb-36 md:px-36"
           >
             <h1 className="pb-4 text-xl md:text-2xl md:pb-28">BIO</h1>

@@ -7,10 +7,6 @@ import { useOverlay, usePreventScroll, useModal, OverlayContainer } from '@react
 import { useDialog } from '@react-aria/dialog';
 import { FocusScope } from '@react-aria/focus';
 
-import Icon from 'components/icon';
-
-import CLOSE_SVG from 'svgs/ui/close.svg?sprite';
-
 import type { ModalProps } from './types';
 import { CONTENT_CLASSES, OVERLAY_CLASSES } from './constants';
 

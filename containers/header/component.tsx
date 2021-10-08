@@ -25,6 +25,7 @@ import { HAMBURGER_MENU_STYLES } from './constants';
 const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
   const [isHover, toggleHover] = useState(false);
   const language = useAppSelector((state) => state.language.languageSelected);
+  const isWhiteBackground = useAppSelector((state) => state.common.isWhiteBackground);
   const dispatch = useAppDispatch();
 
   const subMenuAnimate = {
@@ -157,11 +158,13 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
         <Link href="/contact">
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a
-            className="fixed z-10 p-2 text-xs leading-4 border bottom-4 right-4 ml-14"
+            className={cx({
+              'fixed z-10 p-2 text-xs leading-4 border bottom-4 right-4 ml-14': true,
+              'border-white text-white': !isWhiteBackground,
+              'border-black text-black': isWhiteBackground,
+            })}
             style={{
-              letterSpacing: '0.6px',
-              borderColor: '#cecfd6',
-              color: '#cecfd6',
+              letterSpacing: '0.6px'
             }}
           >
             CONTACT

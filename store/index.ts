@@ -1,9 +1,11 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import type { ReducersMapObject } from '@reduxjs/toolkit';
 import language from 'store/language/slice';
+import common from 'store/common/slice';
 
 const staticReducers = {
   language,
+  common,
 };
 
 const asyncReducers = {};
