@@ -15,7 +15,7 @@ const CookiesBanner: FC<CookiesBannerProps> = () => {
     <div className="relative">
       {showBanner && (
         <>
-          <div className="absolute top-0 bottom-0 w-full h-full bg-black opacity-20" />
+          <div className="absolute top-0 bottom-0 w-full h-full bg-black opacity-40" />
           <div className="relative flex flex-col items-center px-8 py-4 text-xs text-white">
             <p className="overflow-auto" style={{ maxHeight: '40px' }}>
               This site uses cookies from Google to deliver its services and to analyze traffic.
