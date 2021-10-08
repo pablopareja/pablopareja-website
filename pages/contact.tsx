@@ -142,7 +142,7 @@ const Contact: React.FC = () => {
         </div>
       )}
       <Footer />
-      <div className="absolute bottom-0 left-0">
+      <div className="fixed bottom-0 left-0">
         <CookiesBanner />
       </div>
     </div>
