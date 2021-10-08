@@ -29,13 +29,14 @@ const Home: React.FC = () => {
   const [text, setText] = useState<string>('');
   const [playSound, setPlaySound] = useState<boolean>(false);
   const showSecretSections = text.includes('secret');
-  const { ref: whiteSectionRef, inView: whiteSectionInView } = useInView({ threshold: 0.1 });
-  const { ref: blackSectionRef, inView: blackSectionInView } = useInView({ threshold: 0.1 });
+  const { ref: whiteSectionRef, inView: whiteSectionInView } = useInView({ threshold: 0 });
+  const { ref: videoSectionRef, inView: videoSectionInView } = useInView({ threshold: 0 });
+
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(setIsWhiteBackground(whiteSectionInView && !blackSectionInView));
-  }, [whiteSectionInView, blackSectionInView]);
+    dispatch(setIsWhiteBackground(whiteSectionInView && !videoSectionInView));
+  }, [whiteSectionInView, videoSectionInView]);
 
   return (
     <div
@@ -51,7 +52,7 @@ const Home: React.FC = () => {
       <div>
         {showSecretSections && <Header />}
         {/* FIRST SECTION: VIDEO */}
-        <div className="h-screen py-12 md:py-16 md:px-36">
+        <div ref={videoSectionRef} className="h-screen py-12 md:py-16 md:px-36">
           <video
             id="backgroundVideo"
             className="absolute top-0 left-0 object-cover w-full h-full"
@@ -151,7 +152,6 @@ const Home: React.FC = () => {
           {/* BIO SECTION */}
           <section
             id="bio"
-            ref={blackSectionRef}
             className="flex flex-col w-full px-6 py-24 text-white bg-black md:pb-36 md:px-36"
           >
             <h1 className="pb-4 text-xl md:text-2xl md:pb-28">BIO</h1>

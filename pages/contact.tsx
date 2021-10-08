@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Head from 'next/head';
+import { useInView } from 'react-intersection-observer';
 
 // containers
 import Footer from 'containers/footer';
@@ -8,15 +9,28 @@ import Header from 'containers/header';
 // icons
 import DIAGONAL from 'svgs/ui/diagonal.svg?sprite';
 
+// slices
+import { setIsWhiteBackground } from 'store/common/slice';
+
 // components
 import Icon from 'components/icon';
 
 // utils
 import { Desktop, Mobile } from 'utils/responsive';
 
+// hooks
+import { useAppDispatch } from 'store/hooks';
+
 const Contact: React.FC = () => {
   const [text, setText] = useState<string>('');
   const showSecretSections = text.includes('secret');
+  const { ref: whiteSectionRef, inView: whiteSectionInView } = useInView({ threshold: 0.1 });
+  const { ref: blackSectionRef, inView: blackSectionInView } = useInView({ threshold: 0.1 });
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(setIsWhiteBackground(whiteSectionInView && !blackSectionInView));
+  }, [whiteSectionInView]);
 
   const getContactForm = () => (
     <>
@@ -67,49 +81,66 @@ const Contact: React.FC = () => {
         <title>Pablo Pareja</title>
       </Head>
       <div>
-        {showSecretSections && <Header black />}
-        <div className="h-screen">
-          <img
-            className="absolute top-0 left-0 object-cover w-full h-full"
-            src="/images/PabloParejaPianoPlaying.jpg"
-            alt="Media"
-            style={{ filter: 'grayscale(100%)', zIndex: -1 }}
-          />
-        </div>
-        {showSecretSections && (
-          <div className="relative flex flex-col-reverse p-8 text-2xl text-white bg-black sm:p-56 sm:flex-row">
-            <div>
-              <div className="flex py-12 font-sans text-xl sm:mr-24 sm:py-0">
-                <div>
-                  <Icon className="w-9 h-9" icon={DIAGONAL} />
-                </div>
-                <div
-                  className="flex py-6 text-base italic leading-8 sm:py-0 sm:px-8"
-                  style={{ letterSpacing: '1px' }}
-                >
-                  When the dreams you've been chasing, never will come <br />
-                  Like the fire that burnt in you is now just a glow <br />
-                  Solitary, reminiscence, of what you once hoped <br />
-                  But we will sail, agains the wind, hard though it may be <br />
-                  after all we're just bound to cross the sea...
-                </div>
-                <div className="flex items-end">
-                  <Icon className="w-9 h-9" icon={DIAGONAL} />
-                </div>
+        <Desktop includeBiggerScreens>
+          {showSecretSections && <Header black />}
+          <div className="h-screen">
+            <img
+              className="absolute top-0 left-0 object-cover w-full h-full"
+              src="/images/PabloParejaPianoPlaying.jpg"
+              alt="Media"
+              style={{ filter: 'grayscale(100%)', zIndex: -1 }}
+            />
+          </div>
+        </Desktop>
+        <Mobile>
+          {showSecretSections && <Header black={false} />}
+          <div className="h-screen">
+            <img
+              ref={whiteSectionRef}
+              className="absolute top-0 left-0 object-cover w-full h-full"
+              src="/images/PabloParejaPianoPlaying_mobile.png"
+              alt="Media"
+              style={{ filter: 'grayscale(100%)', zIndex: -1 }}
+            />
+          </div>
+        </Mobile>
+      </div>
+      {showSecretSections && (
+        <div
+          ref={blackSectionRef}
+          className="relative flex flex-col-reverse p-8 text-2xl text-white bg-black sm:p-56 sm:flex-row"
+        >
+          <div>
+            <div className="flex py-12 font-sans text-xl sm:mr-24 sm:py-0">
+              <div>
+                <Icon className="w-9 h-9" icon={DIAGONAL} />
+              </div>
+              <div
+                className="flex py-6 text-base italic leading-8 sm:py-0 sm:px-8"
+                style={{ letterSpacing: '1px' }}
+              >
+                When the dreams you've been chasing, never will come <br />
+                Like the fire that burnt in you is now just a glow <br />
+                Solitary, reminiscence, of what you once hoped <br />
+                But we will sail, agains the wind, hard though it may be <br />
+                after all we're just bound to cross the sea...
+              </div>
+              <div className="flex items-end">
+                <Icon className="w-9 h-9" icon={DIAGONAL} />
               </div>
             </div>
-            <Mobile>
-              <div className="flex flex-col w-full">{getContactForm()}</div>
-            </Mobile>
-            <Desktop includeBiggerScreens>
-              <div className="flex flex-col" style={{ minWidth: '352px', maxWidth: '352px' }}>
-                {getContactForm()}
-              </div>
-            </Desktop>
           </div>
-        )}
-        <Footer />
-      </div>
+          <Mobile>
+            <div className="flex flex-col w-full">{getContactForm()}</div>
+          </Mobile>
+          <Desktop includeBiggerScreens>
+            <div className="flex flex-col" style={{ minWidth: '352px', maxWidth: '352px' }}>
+              {getContactForm()}
+            </div>
+          </Desktop>
+        </div>
+      )}
+      <Footer />
     </div>
   );
 };

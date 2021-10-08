@@ -39,12 +39,22 @@ const Media: React.FC = () => {
       <div>
         <div className="relative h-screen">
           {showSecretSections && <Header />}
-          <img
-            className="absolute top-0 left-0 object-cover w-full h-full"
-            src="/images/mediaBackground.jpg"
-            alt="Media"
-            style={{ filter: 'grayscale(100%)', zIndex: -1 }}
-          />
+          <Desktop includeBiggerScreens>
+            <img
+              className="absolute top-0 left-0 object-cover w-full h-full"
+              src="/images/mediaBackground.jpg"
+              alt="Media"
+              style={{ filter: 'grayscale(100%)', zIndex: -1 }}
+            />
+          </Desktop>
+          <Mobile>
+            <img
+              className="absolute top-0 left-0 object-cover w-full h-full"
+              src="/images/mediaBackground_mobile.png"
+              alt="Media"
+              style={{ filter: 'grayscale(100%)', zIndex: -1 }}
+            />
+          </Mobile>
           <div
             className="absolute top-0 left-0 flex items-center justify-center w-full h-full text-3xl leading-9 text-white"
             style={{ letterSpacing: '18px' }}
