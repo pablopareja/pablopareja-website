@@ -23,7 +23,7 @@ import DIAGONAL from 'svgs/ui/diagonal.svg?sprite';
 import PLAY from 'svgs/ui/play.svg?sprite';
 
 // utils
-import { Desktop, MediaContextProvider, Mobile } from 'utils/responsive';
+import { Desktop, Mobile } from 'utils/responsive';
 
 const Home: React.FC = () => {
   const [text, setText] = useState<string>('');
@@ -53,16 +53,30 @@ const Home: React.FC = () => {
         {showSecretSections && <Header />}
         {/* FIRST SECTION: VIDEO */}
         <div ref={videoSectionRef} className="h-screen py-12 md:py-16 md:px-36">
-          <video
-            id="backgroundVideo"
-            className="absolute top-0 left-0 object-cover w-full h-full"
-            style={{ zIndex: -1 }}
-            autoPlay
-            muted
-            loop
-          >
-            <source src="/videos/the_sea_teaser.mp4" type="video/mp4" />
-          </video>
+          <Desktop>
+            <video
+              id="backgroundVideo"
+              className="absolute top-0 left-0 object-cover w-full h-full"
+              style={{ zIndex: -1 }}
+              autoPlay
+              muted
+              loop
+            >
+              <source src="/videos/the_sea_teaser.mp4" type="video/mp4" />
+            </video>
+          </Desktop>
+          <Mobile>
+            <video
+              id="backgroundVideo"
+              className="absolute top-0 left-0 object-cover w-full h-full"
+              style={{ zIndex: -1 }}
+              autoPlay
+              muted
+              loop
+            >
+              <source src="/videos/the_sea_teaser_mobile.mp4" type="video/mp4" />
+            </video>
+          </Mobile>
           {!showSecretSections && (
             <motion.div
               className="flex items-center justify-center w-full h-full text-2xl text-white"
@@ -74,21 +88,43 @@ const Home: React.FC = () => {
           )}
           {showSecretSections && (
             <div className="absolute top-0 left-0 flex items-center justify-center w-full h-full text-2xl text-white">
-              <MediaContextProvider>
-                <Desktop includeBiggerScreens>
-                  <div className="flex" style={{ height: '100%' }}>
-                    <div
-                      className="flex items-start text-3xl leading-9 text-center text-white"
-                      style={{ letterSpacing: '18px' }}
-                    >
-                      THE SEA
+              <Desktop includeBiggerScreens>
+                <div className="flex" style={{ height: '100%' }}>
+                  <div
+                    className="flex items-start text-3xl leading-9 text-center text-white"
+                    style={{ letterSpacing: '18px' }}
+                  >
+                    THE SEA
+                  </div>
+                </div>
+                <AnchorLink href="#music">
+                  <div
+                    role="button"
+                    tabIndex={0}
+                    className="absolute left-0 flex items-center justify-center w-full pr-4 bottom-6"
+                    onClick={() => setPlaySound(true)}
+                    onKeyPress={() => setPlaySound(true)}
+                  >
+                    <Icon className="w-3 h-3 mx-4" icon={PLAY} />
+                    <div className="text-sm leading-4" style={{ letterSpacing: '5.6px' }}>
+                      PLAY
                     </div>
+                  </div>
+                </AnchorLink>
+              </Desktop>
+              <Mobile>
+                <div className="flex flex-col h-12">
+                  <div
+                    className="flex items-start h-full text-3xl leading-9 text-center text-white"
+                    style={{ letterSpacing: '18px' }}
+                  >
+                    THE SEA
                   </div>
                   <AnchorLink href="#music">
                     <div
                       role="button"
                       tabIndex={0}
-                      className="absolute left-0 flex items-center justify-center w-full pr-4 bottom-6"
+                      className="flex items-center w-full mt-6 ml-12"
                       onClick={() => setPlaySound(true)}
                       onKeyPress={() => setPlaySound(true)}
                     >
@@ -98,32 +134,8 @@ const Home: React.FC = () => {
                       </div>
                     </div>
                   </AnchorLink>
-                </Desktop>
-                <Mobile>
-                  <div className="flex flex-col h-12">
-                    <div
-                      className="flex items-start h-full text-3xl leading-9 text-center text-white"
-                      style={{ letterSpacing: '18px' }}
-                    >
-                      THE SEA
-                    </div>
-                    <AnchorLink href="#music">
-                      <div
-                        role="button"
-                        tabIndex={0}
-                        className="flex items-center w-full mt-6 ml-12"
-                        onClick={() => setPlaySound(true)}
-                        onKeyPress={() => setPlaySound(true)}
-                      >
-                        <Icon className="w-3 h-3 mx-4" icon={PLAY} />
-                        <div className="text-sm leading-4" style={{ letterSpacing: '5.6px' }}>
-                          PLAY
-                        </div>
-                      </div>
-                    </AnchorLink>
-                  </div>
-                </Mobile>
-              </MediaContextProvider>
+                </div>
+              </Mobile>
             </div>
           )}
         </div>
@@ -146,7 +158,18 @@ const Home: React.FC = () => {
               >
                 THE SEA
               </h2>
-              <Player src="/audio/TheSea.mp3" autoPlay={playSound} />
+              <Player src="/audio/TheSeaTeaser.mp3" autoPlay={playSound} />
+              <div className="flex justify-end w-full mt-3 text-xs italic">
+                Available on October 22, 2021
+                <a
+                  className="ml-1 underline hover:text-gray-500"
+                  href="https://distrokid.com/hyperfollow/pablopareja/the-sea"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  (Pre-save on Spotify)
+                </a>
+              </div>
             </div>
           </section>
           {/* BIO SECTION */}
@@ -178,16 +201,77 @@ const Home: React.FC = () => {
                   contemporary classical music. Later on he starts developing an interest in film
                   scoring and he composes his first solo piano piece at the age of 17. Years later
                   he studies vocal technique, music theory, jazz, and composition in Rome and
-                  Málaga, attending also various international jazz seminars where he has the chance
-                  to meet renowned artists like Viktorija Pilatovic, Deborah Carter, Roberta
-                  Gambarini, Norma Winstone, Michael Kanan, and Aarong Goldberg among others.
+                  Málaga; attending also various international jazz seminars where he has the chance
+                  to meet renowned artists like{' '}
+                  <a
+                    className="hover:underline"
+                    href="https://www.viktorijapilatovic.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Viktorija Pilatovic
+                  </a>
+                  ,{' '}
+                  <a
+                    className="hover:underline"
+                    href="https://deborahcarter.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Deborah Carter
+                  </a>
+                  ,{' '}
+                  <a
+                    className="hover:underline"
+                    href="https://en.wikipedia.org/wiki/Roberta_Gambarini"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Roberta Gambarini
+                  </a>
+                  ,{' '}
+                  <a
+                    className="hover:underline"
+                    href="https://en.wikipedia.org/wiki/Norma_Winstone"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Norma Winstone
+                  </a>
+                  ,{' '}
+                  <a
+                    className="hover:underline"
+                    href="http://www.michaelkanan.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Michael Kanan
+                  </a>
+                  , and{' '}
+                  <a
+                    className="hover:underline"
+                    href="https://en.wikipedia.org/wiki/Aaron_Goldberg"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Aarong Goldberg
+                  </a>{' '}
+                  among others.
                 </p>
                 <p>
                   More recently Pablo has been performing with the Big Band from the Málaga Jazz
                   Association as the lead singer as well as has participated in various festivals
                   and concerts such as the Jazzahara festival or the International Jazz day
-                  Torremolinos. He is currently studying advanced composition with José Carra and
-                  focuses on the creation of his first album boh as a composer and singer.
+                  Torremolinos. He is currently studying advanced composition with{' '}
+                  <a
+                    className="hover:underline"
+                    href="https://josecarra.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    José Carra
+                  </a>{' '}
+                  and focuses on the creation of his first album both as a composer and singer.
                 </p>
                 {/* <p>
                   Ha participado durante varios años como cantante de la Big Band de la Asociación

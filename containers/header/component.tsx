@@ -127,13 +127,12 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
                 MEDIA
               </a>
             </Link>
-            <Link href="/events">
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+            {/* <Link href="/events">
               <a className="leading-4 ml-14" style={{ letterSpacing: '0.6px' }}>
                 EVENTS
               </a>
-            </Link>
-            <motion.div
+            </Link> */}
+            {/* <motion.div
               className="uppercase ml-14"
               onHoverStart={() => toggleHover(!isHover)}
               onHoverEnd={() => toggleHover(!isHover)}
@@ -174,7 +173,7 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
                   ))}
                 </div>
               </motion.div>
-            </motion.div>
+            </motion.div> */}
             <Link href="/contact">
               {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <a
