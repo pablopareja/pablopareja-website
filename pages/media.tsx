@@ -13,6 +13,7 @@ import { Desktop, Mobile } from 'utils/responsive';
 
 // types
 import { ImageData } from 'types';
+import CookiesBanner from 'components/cookies-banner';
 
 const Media: React.FC = () => {
   const [text, setText] = useState<string>('');
@@ -196,6 +197,9 @@ const Media: React.FC = () => {
           </>
         )}
         <Footer />
+        <div className="absolute bottom-0 left-0">
+          <CookiesBanner />
+        </div>
       </div>
     </div>
   );

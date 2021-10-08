@@ -24,6 +24,7 @@ import PLAY from 'svgs/ui/play.svg?sprite';
 
 // utils
 import { Desktop, Mobile } from 'utils/responsive';
+import CookiesBanner from 'components/cookies-banner';
 
 const Home: React.FC = () => {
   const [text, setText] = useState<string>('');
@@ -290,6 +291,9 @@ const Home: React.FC = () => {
           <Footer />
         </>
       )}
+      <div className="absolute bottom-0 left-0">
+        <CookiesBanner />
+      </div>
     </div>
   );
 };

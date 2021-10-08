@@ -20,6 +20,7 @@ import { Desktop, Mobile } from 'utils/responsive';
 
 // hooks
 import { useAppDispatch } from 'store/hooks';
+import CookiesBanner from 'components/cookies-banner';
 
 const Contact: React.FC = () => {
   const [text, setText] = useState<string>('');
@@ -141,6 +142,9 @@ const Contact: React.FC = () => {
         </div>
       )}
       <Footer />
+      <div className="absolute bottom-0 left-0">
+        <CookiesBanner />
+      </div>
     </div>
   );
 };
