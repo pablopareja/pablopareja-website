@@ -24,7 +24,6 @@ import CookiesBanner from 'components/cookies-banner';
 
 const Contact: React.FC = () => {
   const [text, setText] = useState<string>('');
-  const showSecretSections = text.includes('secret');
   const { ref: whiteSectionRef, inView: whiteSectionInView } = useInView({ threshold: 0.1 });
   const { ref: blackSectionRef, inView: blackSectionInView } = useInView({ threshold: 0.1 });
   const dispatch = useAppDispatch();
@@ -84,7 +83,7 @@ const Contact: React.FC = () => {
       <div>
         <Desktop includeBiggerScreens>
           <div className="h-screen">
-            {showSecretSections && <Header black />}
+            <Header black />
             <img
               className="absolute top-0 left-0 object-cover w-full h-full"
               src="/images/PabloParejaPianoPlaying.jpg"
@@ -94,7 +93,7 @@ const Contact: React.FC = () => {
           </div>
         </Desktop>
         <Mobile>
-          {showSecretSections && <Header black={false} />}
+          <Header black={false} />
           <div className="h-screen">
             <img
               ref={whiteSectionRef}
@@ -106,41 +105,39 @@ const Contact: React.FC = () => {
           </div>
         </Mobile>
       </div>
-      {showSecretSections && (
-        <div
-          ref={blackSectionRef}
-          className="relative flex flex-col-reverse p-8 text-2xl text-white bg-black sm:p-56 sm:flex-row"
-        >
-          <div>
-            <div className="flex py-12 font-sans text-xl sm:mr-24 sm:py-0">
-              <div>
-                <Icon className="w-9 h-9" icon={DIAGONAL} />
-              </div>
-              <div
-                className="flex py-6 text-base italic leading-8 sm:py-0 sm:px-8"
-                style={{ letterSpacing: '1px' }}
-              >
-                When the dreams you've been chasing, never will come <br />
-                Like the fire that burnt in you is now just a glow <br />
-                Solitary, reminiscence, of what you once hoped <br />
-                But we will sail, agains the wind, hard though it may be <br />
-                after all we're just bound to cross the sea...
-              </div>
-              <div className="flex items-end">
-                <Icon className="w-9 h-9" icon={DIAGONAL} />
-              </div>
+      <div
+        ref={blackSectionRef}
+        className="relative flex flex-col-reverse p-8 text-2xl text-white bg-black sm:p-56 sm:flex-row"
+      >
+        <div>
+          <div className="flex py-12 font-sans text-xl sm:mr-24 sm:py-0">
+            <div>
+              <Icon className="w-9 h-9" icon={DIAGONAL} />
+            </div>
+            <div
+              className="flex py-6 text-base italic leading-8 sm:py-0 sm:px-8"
+              style={{ letterSpacing: '1px' }}
+            >
+              When the dreams you've been chasing, never will come <br />
+              Like the fire that burnt in you is now just a glow <br />
+              Solitary, reminiscence, of what you once hoped <br />
+              But we will sail, agains the wind, hard though it may be <br />
+              after all we're just bound to cross the sea...
+            </div>
+            <div className="flex items-end">
+              <Icon className="w-9 h-9" icon={DIAGONAL} />
             </div>
           </div>
-          <Mobile>
-            <div className="flex flex-col w-full">{getContactForm()}</div>
-          </Mobile>
-          <Desktop includeBiggerScreens>
-            <div className="flex flex-col" style={{ minWidth: '352px', maxWidth: '352px' }}>
-              {getContactForm()}
-            </div>
-          </Desktop>
         </div>
-      )}
+        <Mobile>
+          <div className="flex flex-col w-full">{getContactForm()}</div>
+        </Mobile>
+        <Desktop includeBiggerScreens>
+          <div className="flex flex-col" style={{ minWidth: '352px', maxWidth: '352px' }}>
+            {getContactForm()}
+          </div>
+        </Desktop>
+      </div>
       <Footer />
       <div className="fixed bottom-0 left-0">
         <CookiesBanner />
