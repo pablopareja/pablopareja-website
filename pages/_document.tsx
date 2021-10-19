@@ -32,17 +32,17 @@ class MyDocument extends Document {
             dangerouslySetInnerHTML={{
               __html: `
             {
-                '@context': 'http://schema.org',
-                '@type': 'Logo',
+                "@context": "http://schema.org",
+                "@type": "Logo",
                 address: {
-                  '@type': 'PostalAddress',
-                  addressLocality: 'Málaga',
+                  "@type": "PostalAddress",
+                  addressLocality: "Málaga",
                 },
-                image: 'janedoe.jpg',
-                jobTitle: 'Singer, multi-instrumentalist, and composer',
-                name: 'Pablo Pareja',
-                url: 'https://www.pablopareja.com',
-                logo: 'https://raw.githubusercontent.com/pablopareja/pablopareja.github.io/main/public/images/mediaBackground_mobile.png',
+                image: "janedoe.jpg",
+                jobTitle: "Singer, multi-instrumentalist, and composer",
+                name: "Pablo Pareja",
+                url: "https://www.pablopareja.com",
+                logo: "https://raw.githubusercontent.com/pablopareja/pablopareja.github.io/main/public/images/mediaBackground_mobile.png",
               }),
             }`,
             }}
