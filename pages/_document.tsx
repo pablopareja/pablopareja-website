@@ -34,15 +34,15 @@ class MyDocument extends Document {
             {
                 "@context": "http://schema.org",
                 "@type": "Logo",
-                address: {
+                "address": {
                   "@type": "PostalAddress",
-                  addressLocality: "Málaga",
+                  "addressLocality": "Málaga",
                 },
-                image: "janedoe.jpg",
-                jobTitle: "Singer, multi-instrumentalist, and composer",
-                name: "Pablo Pareja",
-                url: "https://www.pablopareja.com",
-                logo: "https://raw.githubusercontent.com/pablopareja/pablopareja.github.io/main/public/images/mediaBackground_mobile.png",
+                "image": "janedoe.jpg",
+                "jobTitle": "Singer, multi-instrumentalist, and composer",
+                "name": "Pablo Pareja",
+                "url": "https://www.pablopareja.com",
+                "logo": "https://raw.githubusercontent.com/pablopareja/pablopareja.github.io/main/public/images/mediaBackground_mobile.png",
               }),
             }`,
             }}
