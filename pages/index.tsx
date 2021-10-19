@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
-import { motion } from 'framer-motion';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { useInView } from 'react-intersection-observer';
 
@@ -48,6 +47,10 @@ const Home: React.FC = () => {
     >
       <Head>
         <title>Pablo Pareja</title>
+        <meta
+          name="description"
+          content="Pablo Pareja is a Spanish jazz singer and composer based in Málaga, Spain."
+        />
       </Head>
       <div>
         <Header />

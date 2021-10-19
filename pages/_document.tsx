@@ -27,6 +27,25 @@ class MyDocument extends Document {
               `,
             }}
           />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                '@context': 'http://schema.org',
+                '@type': 'Logo',
+                address: {
+                  '@type': 'PostalAddress',
+                  addressLocality: 'Málaga',
+                },
+                image: 'janedoe.jpg',
+                jobTitle: 'Singer, multi-instrumentalist, and composer',
+                name: 'Pablo Pareja',
+                url: 'https://www.pablopareja.com',
+                logo: 'https://raw.githubusercontent.com/pablopareja/pablopareja.github.io/main/public/images/mediaBackground_mobile.png',
+              }),
+            }}
+          />
+
           <link
             href="https://fonts.googleapis.com/css2?family=Cabin&display=swap"
             rel="stylesheet"
