@@ -30,7 +30,8 @@ class MyDocument extends Document {
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
+              __html: `
+            {
                 '@context': 'http://schema.org',
                 '@type': 'Logo',
                 address: {
@@ -43,6 +44,7 @@ class MyDocument extends Document {
                 url: 'https://www.pablopareja.com',
                 logo: 'https://raw.githubusercontent.com/pablopareja/pablopareja.github.io/main/public/images/mediaBackground_mobile.png',
               }),
+            }`,
             }}
           />
 
