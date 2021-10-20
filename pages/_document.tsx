@@ -30,21 +30,18 @@ class MyDocument extends Document {
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
-              __html: `
-            {
-                "@context": "http://schema.org",
-                "@type": "Logo",
-                "address": {
-                  "@type": "PostalAddress",
-                  "addressLocality": "Málaga"
+              __html: JSON.stringify({
+                '@context': 'http://schema.org',
+                '@type': 'Logo',
+                address: {
+                  '@type': 'PostalAddress',
+                  addressLocality: 'Málaga',
                 },
-                "image": "janedoe.jpg",
-                "jobTitle": "Singer, multi-instrumentalist, and composer",
-                "name": "Pablo Pareja",
-                "url": "https://www.pablopareja.com",
-                "logo": "https://raw.githubusercontent.com/pablopareja/pablopareja.github.io/main/public/images/mediaBackground_mobile.png"
+                jobTitle: 'Singer, multi-instrumentalist, and composer',
+                name: 'Pablo Pareja',
+                url: 'https://www.pablopareja.com',
+                logo: 'https://raw.githubusercontent.com/pablopareja/pablopareja.github.io/main/public/images/mediaBackground_mobile.png',
               }),
-            }`,
             }}
           />
 
