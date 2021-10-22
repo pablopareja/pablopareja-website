@@ -3,21 +3,6 @@ import { SocialMediaLink } from './types';
 // eslint-disable-next-line import/prefer-default-export
 export const FOLLOW_ME_LINKS: SocialMediaLink[] = [
   {
-    label: 'Spotify',
-    url: '',
-    visible: false,
-  },
-  {
-    label: 'Apple Music',
-    url: '',
-    visible: false,
-  },
-  {
-    label: 'iTunes',
-    url: '',
-    visible: false,
-  },
-  {
     label: 'Instagram',
     url: 'https://www.instagram.com/pabloparejatobes/',
     visible: true,
@@ -33,14 +18,29 @@ export const FOLLOW_ME_LINKS: SocialMediaLink[] = [
     visible: true,
   },
   {
+    label: 'Spotify',
+    url: 'https://open.spotify.com/artist/0rFp2xkRGVaFm3tM4XgtEi',
+    visible: true,
+  },
+  {
+    label: 'Apple Music',
+    url: 'https://music.apple.com/us/album/the-sea-single/1586833350',
+    visible: true,
+  },
+  {
+    label: 'iTunes',
+    url: 'https://music.apple.com/us/album/the-sea-single/1586833350',
+    visible: true,
+  },
+  {
     label: 'Youtube Music',
     url: '',
     visible: false,
   },
   {
     label: 'Amazon',
-    url: '',
-    visible: false,
+    url: 'https://www.amazon.com/gp/product/B09GSB1Q7Y/?tag=distrokid06-20',
+    visible: true,
   },
   {
     label: 'Twitch',

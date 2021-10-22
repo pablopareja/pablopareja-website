@@ -40,7 +40,9 @@ const Footer: FC<FooterProps> = () => (
         {FOLLOW_ME_LINKS.filter((l) => l.visible).map((l) => (
           <Link href={l.url} key={`follow-me-link-${l.label}`}>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-            <a className="mb-1 text-white uppercase md:mb-3">{l.label}</a>
+            <a className="mb-1 text-white uppercase md:mb-3" target="_blank" rel="noreferrer">
+              {l.label}
+            </a>
           </Link>
         ))}
       </div>

@@ -148,16 +148,16 @@ const Home: React.FC = () => {
           >
             THE SEA
           </h2>
-          <Player src="/audio/TheSeaTeaser.mp3" autoPlay={playSound} />
+          <Player src="/audio/TheSea.mp3" autoPlay={playSound} />
           <div className="flex justify-end w-full mt-3 text-xs italic">
-            Available on October 22, 2021
+            Listen on
             <a
               className="ml-1 underline hover:text-gray-500"
-              href="https://distrokid.com/hyperfollow/pablopareja/the-sea"
+              href="https://open.spotify.com/track/6y8Pd4cp53zmbOAT7TrLKL?si=06b706471c8847e3"
               target="_blank"
               rel="noreferrer"
             >
-              (Pre-save on Spotify)
+              Spotify
             </a>
           </div>
         </div>
