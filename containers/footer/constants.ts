@@ -54,8 +54,8 @@ export const FOLLOW_ME_LINKS: SocialMediaLink[] = [
   },
   {
     label: 'Deezer',
-    url: '',
-    visible: false,
+    url: 'https://www.deezer.com/en/artist/130157412',
+    visible: true,
   },
   {
     label: 'Tidal',
