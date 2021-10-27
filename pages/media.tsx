@@ -34,11 +34,7 @@ const Media: React.FC = () => {
       role="menu"
     >
       <Head>
-        <title>Pablo Pareja - Media</title>
-        <meta
-          name="description"
-          content="Pablo Pareja is a Spanish jazz singer and composer based in Málaga, Spain."
-        />
+        <title>Media</title>
       </Head>
       <div>
         <div className="relative h-screen">

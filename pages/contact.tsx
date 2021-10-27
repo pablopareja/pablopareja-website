@@ -78,11 +78,7 @@ const Contact: React.FC = () => {
       role="menu"
     >
       <Head>
-        <title>Pablo Pareja - Contact</title>
-        <meta
-          name="description"
-          content="Pablo Pareja is a Spanish jazz singer and composer based in Málaga, Spain."
-        />
+        <title>Contact</title>
       </Head>
       <div>
         <Desktop includeBiggerScreens>
