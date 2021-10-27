@@ -78,7 +78,7 @@ const Contact: React.FC = () => {
       role="menu"
     >
       <Head>
-        <title>Contact</title>
+        <title>Pablo Pareja - Contact</title>
       </Head>
       <div>
         <Desktop includeBiggerScreens>

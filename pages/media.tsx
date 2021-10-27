@@ -34,7 +34,7 @@ const Media: React.FC = () => {
       role="menu"
     >
       <Head>
-        <title>Media</title>
+        <title>Pablo Pareja - Media</title>
       </Head>
       <div>
         <div className="relative h-screen">

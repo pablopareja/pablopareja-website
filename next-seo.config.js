@@ -3,7 +3,6 @@ export default {
     type: 'website',
     locale: 'en_IE',
     url: 'https://pablopareja.com/',
-    titleTemplate: 'Pablo Pareja - %s',
     description: 'Pablo Pareja is a Spanish jazz singer and composer based in Málaga, Spain.',
     site_name: 'Pablo Pareja',
     images: [
