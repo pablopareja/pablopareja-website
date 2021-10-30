@@ -5,21 +5,23 @@ export const LANGUAGES: LanguageObject[] = [
   {
     id: Language.English,
     label: 'English',
+    locale: 'en-US',
   },
   {
     id: Language.Spanish,
     label: 'Español',
+    locale: 'es-ES',
   },
-  {
-    id: Language.French,
-    label: 'Français',
-  },
-  {
-    id: Language.Italian,
-    label: 'Italiano',
-  },
-  {
-    id: Language.Portuguese,
-    label: 'Portugues',
-  },
+  // {
+  //   id: Language.French,
+  //   label: 'Français',
+  // },
+  // {
+  //   id: Language.Italian,
+  //   label: 'Italiano',
+  // },
+  // {
+  //   id: Language.Portuguese,
+  //   label: 'Portugues',
+  // },
 ];

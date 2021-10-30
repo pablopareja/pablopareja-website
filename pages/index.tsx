@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { useInView } from 'react-intersection-observer';
+import { useRouter } from 'next/router';
 
 // components
 import Icon from 'components/icon';
@@ -25,11 +26,13 @@ import PLAY from 'svgs/ui/play.svg?sprite';
 import { Desktop, Mobile } from 'utils/responsive';
 import CookiesBanner from 'components/cookies-banner';
 
+import TRANSLATIONS from 'translations/pages/homepage';
+
 const Home: React.FC = () => {
-  const [text, setText] = useState<string>('');
   const [playSound, setPlaySound] = useState<boolean>(false);
   const { ref: whiteSectionRef, inView: whiteSectionInView } = useInView({ threshold: 0 });
   const { ref: videoSectionRef, inView: videoSectionInView } = useInView({ threshold: 0 });
+  const { locale } = useRouter();
 
   const dispatch = useAppDispatch();
 
@@ -38,19 +41,10 @@ const Home: React.FC = () => {
   }, [whiteSectionInView, videoSectionInView]);
 
   return (
-    <div
-      onKeyDown={({ key }) => {
-        setText(`${text}${key}`);
-      }}
-      tabIndex={0}
-      role="menu"
-    >
+    <div>
       <Head>
-        <title>Pablo Pareja</title>
-        <meta
-          name="description"
-          content="Pablo Pareja is a Spanish jazz singer and composer based in Málaga, Spain."
-        />
+        <title>{TRANSLATIONS[locale]?.title}</title>
+        <meta name="description" content={TRANSLATIONS[locale]?.description} />
       </Head>
       <div>
         <Header />
@@ -100,7 +94,7 @@ const Home: React.FC = () => {
                 >
                   <Icon className="w-3 h-3 mx-4" icon={PLAY} />
                   <div className="text-sm leading-4" style={{ letterSpacing: '5.6px' }}>
-                    PLAY
+                    {TRANSLATIONS[locale]?.playAnchorLink}
                   </div>
                 </div>
               </AnchorLink>
@@ -123,7 +117,7 @@ const Home: React.FC = () => {
                   >
                     <Icon className="w-3 h-3 mx-4" icon={PLAY} />
                     <div className="text-sm leading-4" style={{ letterSpacing: '5.6px' }}>
-                      PLAY
+                      {TRANSLATIONS[locale]?.playAnchorLink}
                     </div>
                   </div>
                 </AnchorLink>
@@ -150,7 +144,7 @@ const Home: React.FC = () => {
           </h2>
           <Player src="/audio/TheSea.mp3" autoPlay={playSound} />
           <div className="flex justify-end w-full mt-3 text-xs italic">
-            Listen on
+            {TRANSLATIONS[locale]?.listenOnMessage}
             <a
               className="ml-1 underline hover:text-gray-500"
               href="https://open.spotify.com/track/6y8Pd4cp53zmbOAT7TrLKL?si=06b706471c8847e3"

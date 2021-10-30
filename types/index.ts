@@ -14,4 +14,5 @@ export enum Language {
 export interface LanguageObject {
   id: Language;
   label: string;
+  locale: string;
 }
