@@ -22,5 +22,6 @@ export default {
   twitter: {
     handle: '@pablopareja',
     cardType: 'summary_large_image',
+    title: 'Pablo Pareja',
   },
 };

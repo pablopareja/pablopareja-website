@@ -9,7 +9,6 @@ import { useRouter } from 'next/router';
 import { LANGUAGES } from 'components/constants';
 
 // slices
-import { setLanguageSelected } from 'store/language/slice';
 import { setIsWhiteBackground } from 'store/common/slice';
 
 // hooks
@@ -17,6 +16,9 @@ import { useAppDispatch, useAppSelector } from 'store/hooks';
 
 // utils
 import { Desktop, Mobile } from 'utils/responsive';
+
+// translations
+import TRANSLATIONS from 'translations/components/header';
 
 // types
 import { HeaderProps } from './types';
@@ -26,7 +28,7 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
   const language = useAppSelector((state) => state.language.languageSelected);
   const isWhiteBackground = useAppSelector((state) => state.common.isWhiteBackground);
   const dispatch = useAppDispatch();
-  const { pathname } = useRouter();
+  const { pathname, asPath, locale } = useRouter();
 
   const subMenuAnimate = {
     enter: {
@@ -124,7 +126,7 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
             <Link href="/media">
               {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <a className="leading-4 ml-14" style={{ letterSpacing: '0.6px' }}>
-                MEDIA
+                {TRANSLATIONS[locale].media}
               </a>
             </Link>
             {/* <Link href="/events">
@@ -132,10 +134,10 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
                 EVENTS
               </a>
             </Link> */}
-            {/* <motion.div
+            <motion.div
               className="uppercase ml-14"
-              onHoverStart={() => toggleHover(!isHover)}
-              onHoverEnd={() => toggleHover(!isHover)}
+              onHoverStart={() => toggleHover(true)}
+              onHoverEnd={() => toggleHover(false)}
             >
               {language.label}
               <motion.div
@@ -160,20 +162,20 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
                       role="button"
                       tabIndex={0}
                       onClick={() => {
-                        toggleHover(!isHover);
-                        dispatch(setLanguageSelected(l));
+                        toggleHover(false);
                       }}
                       onKeyPress={() => {
-                        toggleHover(!isHover);
-                        dispatch(setLanguageSelected(l));
+                        toggleHover(false);
                       }}
                     >
-                      {l.label}
+                      <Link href={asPath} locale={l.locale}>
+                        {l.label}
+                      </Link>
                     </div>
                   ))}
                 </div>
               </motion.div>
-            </motion.div> */}
+            </motion.div>
             <Link href="/contact">
               {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <a
@@ -184,7 +186,7 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
                 })}
                 style={{ letterSpacing: '0.6px' }}
               >
-                CONTACT
+                {TRANSLATIONS[locale].contact}
               </a>
             </Link>
           </div>

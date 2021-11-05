@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { useInView } from 'react-intersection-observer';
+import { useRouter } from 'next/router';
 
 // components
 import Icon from 'components/icon';
@@ -25,11 +26,13 @@ import PLAY from 'svgs/ui/play.svg?sprite';
 import { Desktop, Mobile } from 'utils/responsive';
 import CookiesBanner from 'components/cookies-banner';
 
+import TRANSLATIONS from 'translations/pages/homepage';
+
 const Home: React.FC = () => {
-  const [text, setText] = useState<string>('');
   const [playSound, setPlaySound] = useState<boolean>(false);
   const { ref: whiteSectionRef, inView: whiteSectionInView } = useInView({ threshold: 0 });
   const { ref: videoSectionRef, inView: videoSectionInView } = useInView({ threshold: 0 });
+  const { locale } = useRouter();
 
   const dispatch = useAppDispatch();
 
@@ -38,19 +41,10 @@ const Home: React.FC = () => {
   }, [whiteSectionInView, videoSectionInView]);
 
   return (
-    <div
-      onKeyDown={({ key }) => {
-        setText(`${text}${key}`);
-      }}
-      tabIndex={0}
-      role="menu"
-    >
+    <div>
       <Head>
-        <title>Pablo Pareja</title>
-        <meta
-          name="description"
-          content="Pablo Pareja is a Spanish jazz singer and composer based in Málaga, Spain."
-        />
+        <title>{TRANSLATIONS[locale]?.title}</title>
+        <meta name="description" content={TRANSLATIONS[locale]?.description} />
       </Head>
       <div>
         <Header />
@@ -100,7 +94,7 @@ const Home: React.FC = () => {
                 >
                   <Icon className="w-3 h-3 mx-4" icon={PLAY} />
                   <div className="text-sm leading-4" style={{ letterSpacing: '5.6px' }}>
-                    PLAY
+                    {TRANSLATIONS[locale]?.playAnchorLink}
                   </div>
                 </div>
               </AnchorLink>
@@ -123,7 +117,7 @@ const Home: React.FC = () => {
                   >
                     <Icon className="w-3 h-3 mx-4" icon={PLAY} />
                     <div className="text-sm leading-4" style={{ letterSpacing: '5.6px' }}>
-                      PLAY
+                      {TRANSLATIONS[locale]?.playAnchorLink}
                     </div>
                   </div>
                 </AnchorLink>
@@ -150,7 +144,7 @@ const Home: React.FC = () => {
           </h2>
           <Player src="/audio/TheSea.mp3" autoPlay={playSound} />
           <div className="flex justify-end w-full mt-3 text-xs italic">
-            Listen on
+            {TRANSLATIONS[locale]?.listenOnMessage}
             <a
               className="ml-1 underline hover:text-gray-500"
               href="https://open.spotify.com/track/6y8Pd4cp53zmbOAT7TrLKL?si=06b706471c8847e3"
@@ -179,97 +173,7 @@ const Home: React.FC = () => {
               maxWidth: '720px',
             }}
           >
-            {/* <p className="mb-8">
-                  Pablo Pareja comienza sus estudios de piano en Granada para años más tarde
-                  interesarse por la voz y el jazz. Estudia técnica vocal, armonía, composición y
-                  piano en Roma y Málaga, así como acude a numerosos seminarios de jazz
-                  internacionales donde ha recibido clases de artistas como Deborah Carter, Roberta
-                  Gambarini, Norma Winstone o Michael Kanan.
-                </p> */}
-            <p className="mb-8">
-              Pablo Pareja starts studying piano in Granada focusing first on classical and
-              contemporary classical music. Later on he starts developing an interest in film
-              scoring and he composes his first solo piano piece at the age of 17. Years later he
-              studies vocal technique, music theory, jazz, and composition in Rome and Málaga;
-              attending also various international jazz seminars where he has the chance to meet
-              renowned artists like{' '}
-              <a
-                className="hover:underline"
-                href="https://www.viktorijapilatovic.com/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Viktorija Pilatovic
-              </a>
-              ,{' '}
-              <a
-                className="hover:underline"
-                href="https://deborahcarter.com/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Deborah Carter
-              </a>
-              ,{' '}
-              <a
-                className="hover:underline"
-                href="https://en.wikipedia.org/wiki/Roberta_Gambarini"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Roberta Gambarini
-              </a>
-              ,{' '}
-              <a
-                className="hover:underline"
-                href="https://en.wikipedia.org/wiki/Norma_Winstone"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Norma Winstone
-              </a>
-              ,{' '}
-              <a
-                className="hover:underline"
-                href="http://www.michaelkanan.com/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Michael Kanan
-              </a>
-              , and{' '}
-              <a
-                className="hover:underline"
-                href="https://en.wikipedia.org/wiki/Aaron_Goldberg"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Aarong Goldberg
-              </a>{' '}
-              among others.
-            </p>
-            <p>
-              More recently Pablo has been performing with the Big Band from the Málaga Jazz
-              Association as the lead singer as well as has participated in various festivals and
-              concerts such as the Jazzahara festival or the International Jazz day Torremolinos. He
-              is currently studying advanced composition with{' '}
-              <a
-                className="hover:underline"
-                href="https://josecarra.com/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                José Carra
-              </a>{' '}
-              and focuses on the creation of his first album both as a composer and singer.
-            </p>
-            {/* <p>
-                  Ha participado durante varios años como cantante de la Big Band de la Asociación
-                  de Jazz de Málaga así como participado en festivales y espectáculos como el
-                  Jazzahara festival o el International Jazz Day Torremolinos. En la actualidad
-                  recibe clases de composición y armonía de José Carra y se centra en la creación de
-                  su primer disco como compositor y cantante.
-                </p> */}
+            {TRANSLATIONS[locale].bio}
           </div>
           <div className="flex items-end">
             <Icon className="w-6 h-6 ml-2 md:w-9 md:h-9 md:ml-0" icon={DIAGONAL} />
