@@ -92,7 +92,7 @@ const Home: React.FC = () => {
                 >
                   <Icon className="w-3 h-3 mx-4" icon={PLAY} />
                   <div className="text-sm leading-4" style={{ letterSpacing: '5.6px' }}>
-                    {/* {TRANSLATIONS[locale]?.playAnchorLink} */}
+                    {t('homepage.playAnchorLink')}
                   </div>
                 </div>
               </AnchorLink>
@@ -115,7 +115,7 @@ const Home: React.FC = () => {
                   >
                     <Icon className="w-3 h-3 mx-4" icon={PLAY} />
                     <div className="text-sm leading-4" style={{ letterSpacing: '5.6px' }}>
-                      {/* {TRANSLATIONS[locale]?.playAnchorLink} */}
+                      {t('homepage.playAnchorLink')}
                     </div>
                   </div>
                 </AnchorLink>
@@ -142,7 +142,7 @@ const Home: React.FC = () => {
           </h2>
           <Player src="/audio/TheSea.mp3" autoPlay={playSound} />
           <div className="flex justify-end w-full mt-3 text-xs italic">
-            {/* {TRANSLATIONS[locale]?.listenOnMessage} */}
+            {t('homepage.listenOnMessage')}
             <a
               className="ml-1 underline hover:text-gray-500"
               href="https://open.spotify.com/track/6y8Pd4cp53zmbOAT7TrLKL?si=06b706471c8847e3"
@@ -170,9 +170,8 @@ const Home: React.FC = () => {
               letterSpacing: '1px',
               maxWidth: '720px',
             }}
-          >
-            {/* {TRANSLATIONS[locale].bio} */}
-          </div>
+            dangerouslySetInnerHTML={{ __html: t('homepage.bio') }}
+          />
           <div className="flex items-end">
             <Icon className="w-6 h-6 ml-2 md:w-9 md:h-9 md:ml-0" icon={DIAGONAL} />
           </div>
