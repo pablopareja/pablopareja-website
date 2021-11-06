@@ -5,12 +5,12 @@ export const LANGUAGES: LanguageObject[] = [
   {
     id: Language.English,
     label: 'English',
-    locale: 'en-US',
+    lang: 'en',
   },
   {
     id: Language.Spanish,
     label: 'Español',
-    locale: 'es-ES',
+    lang: 'es',
   },
   // {
   //   id: Language.French,

@@ -1,0 +1,14 @@
+{
+  "i18n": {
+    "header": {
+      "contact": "CONTACT",
+      "media": "MEDIA"
+    },
+    "homepage": {
+      "playAnchorLink": "PLAY",
+      "listenOnMessage": "Listen on "
+    },
+    "description": "Pablo Pareja is a Spanish jazz singer and composer based in Málaga, Spain.",
+    "title": "Pablo Pareja"
+  }
+}
