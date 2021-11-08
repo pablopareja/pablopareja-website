@@ -164,7 +164,7 @@ const Home: React.FC = () => {
             <Icon className="w-6 h-6 mr-3 md:w-9 md:h-9 md:mr-0" icon={DIAGONAL} />
           </div>
           <div
-            className="leading-7 md:leading-10 md:text-xl md:mx-12"
+            className="leading-7 md:leading-10 md:text-xl md:mx-12 link-underline"
             style={{
               letterSpacing: '1px',
               maxWidth: '720px',

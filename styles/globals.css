@@ -24,6 +24,10 @@
   button:focus {
     outline: none;
   }
+
+  .link-underline a {
+    text-decoration: underline;
+  }
 }
 
 @layer utilities {
