@@ -4,6 +4,7 @@ import cx from 'classnames';
 import { motion } from 'framer-motion';
 import { slide as Menu } from 'react-burger-menu';
 import { useRouter } from 'next/router';
+import { LanguageSwitcher, useTranslation, useSelectedLanguage } from 'next-export-i18n';
 
 // constants
 import { LANGUAGES } from 'components/constants';
@@ -17,18 +18,18 @@ import { useAppDispatch, useAppSelector } from 'store/hooks';
 // utils
 import { Desktop, Mobile } from 'utils/responsive';
 
-// translations
-import TRANSLATIONS from 'translations/components/header';
-
 // types
 import { HeaderProps } from './types';
 
 const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
   const [isHover, toggleHover] = useState(false);
-  const language = useAppSelector((state) => state.language.languageSelected);
   const isWhiteBackground = useAppSelector((state) => state.common.isWhiteBackground);
   const dispatch = useAppDispatch();
-  const { pathname, asPath, locale } = useRouter();
+  const { pathname } = useRouter();
+  const { lang } = useSelectedLanguage();
+  const { t } = useTranslation();
+
+  const currentLangLabel = LANGUAGES.find((l) => l.lang === lang)?.label;
 
   const subMenuAnimate = {
     enter: {
@@ -115,7 +116,7 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
         >
           <Link href="/">
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-            <a>
+            <a className="flex items-center">
               <img
                 src={`/images/pablo_pareja_logo${black ? '_black' : ''}.svg`}
                 alt="Pablo Pareja"
@@ -126,7 +127,13 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
             <Link href="/media">
               {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <a className="leading-4 ml-14" style={{ letterSpacing: '0.6px' }}>
-                {TRANSLATIONS[locale].media}
+                {t('header.media')}
+              </a>
+            </Link>
+            <Link href="/#bio">
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+              <a className="leading-4 ml-14" style={{ letterSpacing: '0.6px' }}>
+                {t('header.bio')}
               </a>
             </Link>
             {/* <Link href="/events">
@@ -139,7 +146,7 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
               onHoverStart={() => toggleHover(true)}
               onHoverEnd={() => toggleHover(false)}
             >
-              {language.label}
+              {currentLangLabel}
               <motion.div
                 className="absolute"
                 style={{ transformOrigin: '50% -30px' }}
@@ -168,9 +175,7 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
                         toggleHover(false);
                       }}
                     >
-                      <Link href={asPath} locale={l.locale}>
-                        {l.label}
-                      </Link>
+                      <LanguageSwitcher lang={l.lang}>{l.label}</LanguageSwitcher>
                     </div>
                   ))}
                 </div>
@@ -186,7 +191,7 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
                 })}
                 style={{ letterSpacing: '0.6px' }}
               >
-                {TRANSLATIONS[locale].contact}
+                {t('header.contact')}
               </a>
             </Link>
           </div>
@@ -208,7 +213,7 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
           <Link href="/media">
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a className="my-8 leading-4 text-white" style={{ letterSpacing: '0.6px' }}>
-              MEDIA
+              {t('header.media')}
             </a>
           </Link>
           {/* <Link href="/events">
@@ -219,7 +224,7 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
           <Link href="/contact">
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a className="leading-4 text-white" style={{ letterSpacing: '0.6px' }}>
-              CONTACT
+              {t('header.contact')}
             </a>
           </Link>
         </Menu>
@@ -236,7 +241,7 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
                 letterSpacing: '0.6px',
               }}
             >
-              CONTACT
+              {t('header.contact')}
             </a>
           </Link>
         )}

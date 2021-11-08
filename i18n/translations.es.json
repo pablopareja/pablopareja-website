@@ -1,0 +1,34 @@
+{
+  "i18n": {
+    "description": "Pablo Pareja es un cantante y compositor principalmente de jazz nacido en Granada, España.",
+    "title": "Pablo Pareja",
+    "contact": {
+      "name": "NOMBRE",
+      "email": "EMAIL",
+      "message": "MENSAJE",
+      "contact": "CONTACTO",
+      "pageTitle": "Contacto"
+    },
+    "header": {
+      "contact": "CONTACTO",
+      "media": "MEDIA",
+      "bio": "BIO"
+    },
+    "homepage": {
+      "playAnchorLink": "ESCUCHA 'THE SEA'",
+      "listenOnMessage": "Escúchala en ",
+      "bio": "<p className=\"mb-8\"> Pablo Pareja comienza sus estudios de piano en Granada para años más tarde interesarse por la voz y el jazz. Estudia técnica vocal, armonía, composición y piano en Roma y Málaga, así como acude a numerosos seminarios de jazz internacionales donde ha recibido clases de artistas como <a className=\"hover:underline\" href=\"https://www.viktorijapilatovic.com/\" target=\"_blank\" rel=\"noreferrer\" > Viktorija Pilatovic</a>, <a className=\"hover:underline\" href=\"https://deborahcarter.com/\" target=\"_blank\" rel=\"noreferrer\" > Deborah Carter</a>, <a className=\"hover:underline\" href=\"https://en.wikipedia.org/wiki/Roberta_Gambarini\" target=\"_blank\" rel=\"noreferrer\" > Roberta Gambarini</a>, <a className=\"hover:underline\" href=\"https://en.wikipedia.org/wiki/Norma_Winstone\" target=\"_blank\" rel=\"noreferrer\" > Norma Winstone</a>, <a className=\"hover:underline\" href=\"http://www.michaelkanan.com/\" target=\"_blank\" rel=\"noreferrer\" > Michael Kanan</a> y <a className=\"hover:underline\" href=\"https://en.wikipedia.org/wiki/Aaron_Goldberg\" target=\"_blank\" rel=\"noreferrer\" > Aarong Goldberg</a> entre otros. </p> <p> Ha participado durante varios años como cantante de la Big Band de la Asociación de Jazz de Málaga así como actuado en festivales y espectáculos como el Jazzahara festival o el International Jazz Day Torremolinos. En la actualidad recibe clases de composición y armonía de <a className=\"hover:underline\" href=\"https://josecarra.com/\" target=\"_blank\" rel=\"noreferrer\" > José Carra</a> y se centra en la creación de su primer EP como compositor y cantante. Para la realización de este EP cuenta con la colaboración de músicos de la talla de <a href=\"https://www.juangaliardomusic.com/\" target=\"_blank\">Juan Galiardo</a> (piano), <a href=\"https://www.instagram.com/iwillplaywithmytoys/\" target=\"_blank\">Juanma Nieto</a> (batería y percusión) y <a href=\"https://www.facebook.com/markus.schneider.9674\" target=\"_blank\">Markus Schneider</a> (contrabajo).</p>"
+    },
+    "footer": {
+      "home": "INICIO",
+      "media": "MEDIA",
+      "bio": "BIO",
+      "contact": "CONTACTO",
+      "followMe": "SÍGUEME EN:"
+    },
+    "player": {
+      "play": "PLAY",
+      "pause": "PAUSAR"
+    }
+  }
+}
