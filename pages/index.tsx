@@ -31,7 +31,6 @@ const Home: React.FC = () => {
   const { ref: whiteSectionRef, inView: whiteSectionInView } = useInView({ threshold: 0 });
   const { ref: videoSectionRef, inView: videoSectionInView } = useInView({ threshold: 0 });
   const { t } = useTranslation();
-
   const dispatch = useAppDispatch();
 
   useEffect(() => {

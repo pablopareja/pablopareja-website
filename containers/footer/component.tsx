@@ -24,6 +24,12 @@ const Footer: FC<FooterProps> = () => {
               {t('footer.media')}
             </a>
           </Link>
+          <Link href="/#bio">
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+            <a className="mr-8 leading-4 md:mr-14" style={{ letterSpacing: '1px' }}>
+              {t('footer.bio')}
+            </a>
+          </Link>
           <Link href="/contact">
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a className="mr-8 leading-4 md:mr-14" style={{ letterSpacing: '1px' }}>

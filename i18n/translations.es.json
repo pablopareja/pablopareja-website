@@ -2,9 +2,17 @@
   "i18n": {
     "description": "Pablo Pareja es un cantante y compositor principalmente de jazz nacido en Granada, España.",
     "title": "Pablo Pareja",
+    "contact": {
+      "name": "NOMBRE",
+      "email": "EMAIL",
+      "message": "MENSAJE",
+      "contact": "CONTACTO",
+      "pageTitle": "Contacto"
+    },
     "header": {
       "contact": "CONTACTO",
-      "media": "MEDIA"
+      "media": "MEDIA",
+      "bio": "BIO"
     },
     "homepage": {
       "playAnchorLink": "ESCUCHA 'THE SEA'",
@@ -14,8 +22,13 @@
     "footer": {
       "home": "INICIO",
       "media": "MEDIA",
+      "bio": "BIO",
       "contact": "CONTACTO",
       "followMe": "SÍGUEME EN:"
+    },
+    "player": {
+      "play": "PLAY",
+      "pause": "PAUSAR"
     }
   }
 }

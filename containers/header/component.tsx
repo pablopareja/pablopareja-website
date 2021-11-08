@@ -4,7 +4,7 @@ import cx from 'classnames';
 import { motion } from 'framer-motion';
 import { slide as Menu } from 'react-burger-menu';
 import { useRouter } from 'next/router';
-import { LanguageSwitcher, useTranslation } from 'next-export-i18n';
+import { LanguageSwitcher, useTranslation, useSelectedLanguage } from 'next-export-i18n';
 
 // constants
 import { LANGUAGES } from 'components/constants';
@@ -23,11 +23,13 @@ import { HeaderProps } from './types';
 
 const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
   const [isHover, toggleHover] = useState(false);
-  const language = useAppSelector((state) => state.language.languageSelected);
   const isWhiteBackground = useAppSelector((state) => state.common.isWhiteBackground);
   const dispatch = useAppDispatch();
   const { pathname } = useRouter();
+  const { lang } = useSelectedLanguage();
   const { t } = useTranslation();
+
+  const currentLangLabel = LANGUAGES.find((l) => l.lang === lang)?.label;
 
   const subMenuAnimate = {
     enter: {
@@ -114,7 +116,7 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
         >
           <Link href="/">
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-            <a>
+            <a className="flex items-center">
               <img
                 src={`/images/pablo_pareja_logo${black ? '_black' : ''}.svg`}
                 alt="Pablo Pareja"
@@ -128,6 +130,12 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
                 {t('header.media')}
               </a>
             </Link>
+            <Link href="/#bio">
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+              <a className="leading-4 ml-14" style={{ letterSpacing: '0.6px' }}>
+                {t('header.bio')}
+              </a>
+            </Link>
             {/* <Link href="/events">
               <a className="leading-4 ml-14" style={{ letterSpacing: '0.6px' }}>
                 EVENTS
@@ -138,7 +146,7 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
               onHoverStart={() => toggleHover(true)}
               onHoverEnd={() => toggleHover(false)}
             >
-              {language.label}
+              {currentLangLabel}
               <motion.div
                 className="absolute"
                 style={{ transformOrigin: '50% -30px' }}

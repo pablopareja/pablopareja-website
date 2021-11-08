@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import Sound from 'react-sound';
 import Slider from 'react-input-slider';
+import { useTranslation } from 'next-export-i18n';
 
 // components
 import Icon from 'components/icon';
@@ -17,6 +18,7 @@ const Player: FC<PlayerProps> = ({ src, autoPlay }: PlayerProps) => {
   const [audioLoaded, setAudioLoaded] = useState(false);
   const [duration, setDuration] = useState(0);
   const [position, setAudioPosition] = useState(0);
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (autoPlay) {
@@ -62,8 +64,8 @@ const Player: FC<PlayerProps> = ({ src, autoPlay }: PlayerProps) => {
       >
         <Icon icon={status === Sound.status.PLAYING ? PAUSE : PLAY} className="w-2 h-2 mr-2" />
         <div>
-          {[Sound.status.STOPPED, Sound.status.PAUSED].includes(status) && 'PLAY'}
-          {status === Sound.status.PLAYING && 'PAUSE'}
+          {[Sound.status.STOPPED, Sound.status.PAUSED].includes(status) && t('player.play')}
+          {status === Sound.status.PLAYING && t('player.pause')}
         </div>
       </div>
       <div className="flex items-center w-full px-8">

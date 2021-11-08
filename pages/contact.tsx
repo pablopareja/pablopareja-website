@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { useInView } from 'react-intersection-observer';
+import { useTranslation } from 'next-export-i18n';
 
 // containers
 import Footer from 'containers/footer';
@@ -27,6 +28,7 @@ const Contact: React.FC = () => {
   const { ref: whiteSectionRef, inView: whiteSectionInView } = useInView({ threshold: 0.1 });
   const { ref: blackSectionRef, inView: blackSectionInView } = useInView({ threshold: 0.1 });
   const dispatch = useAppDispatch();
+  const { t } = useTranslation();
 
   useEffect(() => {
     dispatch(setIsWhiteBackground(whiteSectionInView && !blackSectionInView));
@@ -41,11 +43,11 @@ const Contact: React.FC = () => {
         method="POST"
       >
         <label className="flex flex-col w-full text-xs" htmlFor="name">
-          <span className="mb-4">NAME</span>
+          <span className="mb-4">{t('contact.name')}</span>
           <input className="h-10 bg-black border border-white" name="Name" id="name" type="name" />
         </label>
         <label className="flex flex-col w-full mt-8 text-xs" htmlFor="email">
-          <span className="mb-4">EMAIL</span>
+          <span className="mb-4">{t('contact.email')}</span>
           <input
             className="h-10 bg-black border border-white"
             name="Email"
@@ -54,7 +56,7 @@ const Contact: React.FC = () => {
           />
         </label>
         <label className="flex flex-col w-full mt-8 text-xs" htmlFor="message">
-          <span className="mb-4">MESSAGE</span>
+          <span className="mb-4">{t('contact.message')}</span>
           <textarea className="h-24 bg-black border border-white" name="Message" id="message" />
         </label>
         <div className="flex justify-end w-full sm:justify-start">
@@ -63,22 +65,16 @@ const Contact: React.FC = () => {
             style={{ letterSpacing: '0.6px' }}
             type="submit"
           >
-            CONTACT
+            {t('contact.contact')}
           </button>
         </div>
       </form>
     </>
   );
   return (
-    <div
-      onKeyDown={({ key }) => {
-        setText(`${text}${key}`);
-      }}
-      tabIndex={0}
-      role="menu"
-    >
+    <div>
       <Head>
-        <title>Pablo Pareja - Contact</title>
+        <title>{`Pablo Pareja - ${t('contact.pageTitle')}`}</title>
       </Head>
       <div>
         <Desktop includeBiggerScreens>
