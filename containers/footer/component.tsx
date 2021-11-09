@@ -41,7 +41,7 @@ const Footer: FC<FooterProps> = () => {
         <Link href={`/?lang=${lang}`}>
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a>
-            <img src="/images/pablo_pareja_logo.svg" alt="Pablo Pareja" />
+            <img src="/images/pablo_pareja_logo.svg" alt="Pablo Pareja logo" />
           </a>
         </Link>
       </div>
