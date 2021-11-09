@@ -114,7 +114,7 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
             'text-white': !black,
           })}
         >
-          <Link href="/">
+          <Link href={`/?lang=${lang}`}>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a className="flex items-center">
               <img
@@ -124,13 +124,13 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
             </a>
           </Link>
           <div className="flex items-center">
-            <Link href="/media">
+            <Link href={`/media?lang=${lang}`}>
               {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <a className="leading-4 ml-14" style={{ letterSpacing: '0.6px' }}>
                 {t('header.media')}
               </a>
             </Link>
-            <Link href="/#bio">
+            <Link href={`/?lang=${lang}#bio`}>
               {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <a className="leading-4 ml-14" style={{ letterSpacing: '0.6px' }}>
                 {t('header.bio')}
@@ -181,7 +181,7 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
                 </div>
               </motion.div>
             </motion.div>
-            <Link href="/contact">
+            <Link href={`/contact?lang=${lang}`}>
               {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <a
                 className={cx({
@@ -199,7 +199,7 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
       </Desktop>
       <Mobile>
         <div className="absolute z-10 pt-8 pl-8">
-          <Link href="/">
+          <Link href={`/?lang=${lang}`}>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a>
               <img
@@ -210,7 +210,7 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
           </Link>
         </div>
         <Menu styles={hamburgerMenuStyles} right>
-          <Link href="/media">
+          <Link href={`/media?lang=${lang}`}>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a className="my-8 leading-4 text-white" style={{ letterSpacing: '0.6px' }}>
               {t('header.media')}
@@ -221,7 +221,7 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
               EVENTS
             </a>
           </Link> */}
-          <Link href="/contact">
+          <Link href={`/contact?lang=${lang}`}>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a className="leading-4 text-white" style={{ letterSpacing: '0.6px' }}>
               {t('header.contact')}
@@ -229,7 +229,7 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
           </Link>
         </Menu>
         {!pathname.includes('contact') && (
-          <Link href="/contact">
+          <Link href={`/contact?lang=${lang}`}>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a
               className={cx({

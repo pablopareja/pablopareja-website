@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Head from 'next/head';
 import { useInView } from 'react-intersection-observer';
 import { useTranslation } from 'next-export-i18n';
@@ -24,7 +24,6 @@ import { useAppDispatch } from 'store/hooks';
 import CookiesBanner from 'components/cookies-banner';
 
 const Contact: React.FC = () => {
-  const [text, setText] = useState<string>('');
   const { ref: whiteSectionRef, inView: whiteSectionInView } = useInView({ threshold: 0.1 });
   const { ref: blackSectionRef, inView: blackSectionInView } = useInView({ threshold: 0.1 });
   const dispatch = useAppDispatch();
@@ -114,11 +113,11 @@ const Contact: React.FC = () => {
               className="flex py-6 text-base italic leading-8 sm:py-0 sm:px-8"
               style={{ letterSpacing: '1px' }}
             >
-              When the dreams you've been chasing, never will come <br />
+              When the dreams you&apos;ve been chasing, never will come <br />
               Like the fire that burnt in you is now just a glow <br />
               Solitary, reminiscence, of what you once hoped <br />
               But we will sail, agains the wind, hard though it may be <br />
-              after all we're just bound to cross the sea...
+              after all we&apos;re just bound to cross the sea...
             </div>
             <div className="flex items-end">
               <Icon className="w-9 h-9" icon={DIAGONAL} />

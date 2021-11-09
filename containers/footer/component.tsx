@@ -1,43 +1,44 @@
 import { FC } from 'react';
 import Link from 'next/link';
-import { useTranslation } from 'next-export-i18n';
+import { useTranslation, useSelectedLanguage } from 'next-export-i18n';
 
 import { FooterProps } from './types';
 import { FOLLOW_ME_LINKS } from './constants';
 
 const Footer: FC<FooterProps> = () => {
   const { t } = useTranslation();
+  const { lang } = useSelectedLanguage();
 
   return (
     <footer id="footer" className="h-full p-8 text-xs bg-black md:py-20 md:px-36">
       <div className="flex items-center justify-between">
         <div className="text-white">
-          <Link href="/">
+          <Link href={`/?lang=${lang}`}>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a className="mr-8 leading-4 md:mr-14" style={{ letterSpacing: '1px' }}>
               {t('footer.home')}
             </a>
           </Link>
-          <Link href="/media">
+          <Link href={`/media?lang=${lang}`}>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a className="mr-8 leading-4 md:mr-14" style={{ letterSpacing: '1px' }}>
               {t('footer.media')}
             </a>
           </Link>
-          <Link href="/#bio">
+          <Link href={`/?lang=${lang}#bio`}>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a className="mr-8 leading-4 md:mr-14" style={{ letterSpacing: '1px' }}>
               {t('footer.bio')}
             </a>
           </Link>
-          <Link href="/contact">
+          <Link href={`/contact?lang=${lang}`}>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a className="mr-8 leading-4 md:mr-14" style={{ letterSpacing: '1px' }}>
               {t('footer.contact')}
             </a>
           </Link>
         </div>
-        <Link href="/">
+        <Link href={`/?lang=${lang}`}>
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a>
             <img src="/images/pablo_pareja_logo.svg" alt="Pablo Pareja" />

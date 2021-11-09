@@ -20,6 +20,8 @@ const Player: FC<PlayerProps> = ({ src, autoPlay }: PlayerProps) => {
   const [position, setAudioPosition] = useState(0);
   const { t } = useTranslation();
 
+  console.log('audioLoaded', audioLoaded);
+
   useEffect(() => {
     if (autoPlay) {
       setStatus(Sound.status.PLAYING);
