@@ -99,7 +99,7 @@ const Home: React.FC = () => {
             <Mobile>
               <div className="flex flex-col h-12">
                 <div
-                  className="flex items-start h-full text-3xl leading-9 text-center text-white"
+                  className="flex items-center justify-center h-full text-3xl leading-9 text-center text-white"
                   style={{ letterSpacing: '18px' }}
                 >
                   THE SEA
@@ -108,11 +108,11 @@ const Home: React.FC = () => {
                   <div
                     role="button"
                     tabIndex={0}
-                    className="flex items-center w-full mt-6 ml-12"
+                    className="flex items-center justify-center w-full mt-6"
                     onClick={() => setPlaySound(true)}
                     onKeyPress={() => setPlaySound(true)}
                   >
-                    <Icon className="w-3 h-3 mx-4" icon={PLAY} />
+                    <Icon className="w-3 h-3 mr-4" icon={PLAY} />
                     <div className="text-sm leading-4" style={{ letterSpacing: '5.6px' }}>
                       {t('homepage.playAnchorLink')}
                     </div>

@@ -212,7 +212,7 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
         <Menu styles={hamburgerMenuStyles} right>
           <Link href={`/media?lang=${lang}`}>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-            <a className="my-8 leading-4 text-white" style={{ letterSpacing: '0.6px' }}>
+            <a className="mb-8 leading-4 text-white" style={{ letterSpacing: '0.6px' }}>
               {t('header.media')}
             </a>
           </Link>
@@ -223,10 +223,33 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
           </Link> */}
           <Link href={`/contact?lang=${lang}`}>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-            <a className="leading-4 text-white" style={{ letterSpacing: '0.6px' }}>
+            <a className="mb-8 leading-4 text-white" style={{ letterSpacing: '0.6px' }}>
               {t('header.contact')}
             </a>
           </Link>
+          <Link href={`/?lang=${lang}#bio`}>
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+            <a className="mb-8 leading-4 text-white" style={{ letterSpacing: '0.6px' }}>
+              {t('header.bio')}
+            </a>
+          </Link>
+          {LANGUAGES.map((l) => (
+            <div
+              key={l.id}
+              className="mb-2 text-xs leading-4 uppercase"
+              style={{ letterSpacing: '0.6px' }}
+              role="button"
+              tabIndex={0}
+              onClick={() => {
+                toggleHover(false);
+              }}
+              onKeyPress={() => {
+                toggleHover(false);
+              }}
+            >
+              <LanguageSwitcher lang={l.lang}>{l.label}</LanguageSwitcher>
+            </div>
+          ))}
         </Menu>
         {!pathname.includes('contact') && (
           <Link href={`/contact?lang=${lang}`}>
