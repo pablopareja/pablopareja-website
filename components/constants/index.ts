@@ -1,4 +1,4 @@
-import { Language, LanguageObject } from 'types';
+import { Language, LanguageObject, SocialAccount } from 'types';
 
 // eslint-disable-next-line import/prefer-default-export
 export const LANGUAGES: LanguageObject[] = [
@@ -24,4 +24,27 @@ export const LANGUAGES: LanguageObject[] = [
   //   id: Language.Portuguese,
   //   label: 'Portugues',
   // },
+];
+
+export const SOCIAL_ACCOUNTS: SocialAccount[] = [
+  {
+    id: 'facebook',
+    label: 'Facebook',
+    url: 'https://www.facebook.com/pabloparejamusic/',
+  },
+  {
+    id: 'instagram',
+    label: 'Instagram',
+    url: 'https://www.instagram.com/pabloparejatobes/',
+  },
+  {
+    id: 'tiktok',
+    label: 'Tik Tok',
+    url: 'https://www.tiktok.com/@pablopareja',
+  },
+  {
+    id: 'twitter',
+    label: 'Twitter',
+    url: 'https://twitter.com/pablopareja',
+  },
 ];
