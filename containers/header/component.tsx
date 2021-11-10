@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 import { LanguageSwitcher, useTranslation, useSelectedLanguage } from 'next-export-i18n';
 
 // constants
-import { LANGUAGES } from 'components/constants';
+import { LANGUAGES, SOCIAL_ACCOUNTS } from 'components/constants';
 
 // slices
 import { setIsWhiteBackground } from 'store/common/slice';
@@ -22,7 +22,8 @@ import { Desktop, Mobile } from 'utils/responsive';
 import { HeaderProps } from './types';
 
 const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
-  const [isHover, toggleHover] = useState(false);
+  const [isHoverLanguage, toggleHoverLanguage] = useState(false);
+  const [isHoverSocial, toggleHoverSocial] = useState(false);
   const isWhiteBackground = useAppSelector((state) => state.common.isWhiteBackground);
   const dispatch = useAppDispatch();
   const { pathname } = useRouter();
@@ -143,15 +144,15 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
             </Link> */}
             <motion.div
               className="uppercase ml-14"
-              onHoverStart={() => toggleHover(true)}
-              onHoverEnd={() => toggleHover(false)}
+              onHoverStart={() => toggleHoverLanguage(true)}
+              onHoverEnd={() => toggleHoverLanguage(false)}
             >
               {currentLangLabel}
               <motion.div
                 className="absolute"
                 style={{ transformOrigin: '50% -30px' }}
                 initial="exit"
-                animate={isHover ? 'enter' : 'exit'}
+                animate={isHoverLanguage ? 'enter' : 'exit'}
                 variants={subMenuAnimate}
               >
                 <div
@@ -164,18 +165,61 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
                   {LANGUAGES.map((l) => (
                     <div
                       key={l.id}
-                      className="mb-2 text-xs leading-4 uppercase"
+                      className="mb-2 text-xs leading-4 uppercase last:mb-0"
                       style={{ letterSpacing: '0.6px' }}
                       role="button"
                       tabIndex={0}
                       onClick={() => {
-                        toggleHover(false);
+                        toggleHoverLanguage(false);
                       }}
                       onKeyPress={() => {
-                        toggleHover(false);
+                        toggleHoverLanguage(false);
                       }}
                     >
                       <LanguageSwitcher lang={l.lang}>{l.label}</LanguageSwitcher>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </motion.div>
+            <motion.div
+              className="uppercase ml-14"
+              onHoverStart={() => toggleHoverSocial(true)}
+              onHoverEnd={() => toggleHoverSocial(false)}
+            >
+              {t('header.social')}
+              <motion.div
+                className="absolute"
+                style={{ transformOrigin: '50% -30px' }}
+                initial="exit"
+                animate={isHoverSocial ? 'enter' : 'exit'}
+                variants={subMenuAnimate}
+              >
+                <div
+                  className={cx({
+                    'px-8 py-5 border mt-8': true,
+                    'border-white': !black,
+                    'border-black': black,
+                  })}
+                >
+                  {SOCIAL_ACCOUNTS.map((sa) => (
+                    <div
+                      key={sa.id}
+                      className="mb-2 text-xs leading-4 uppercase last:mb-0"
+                      style={{ letterSpacing: '0.6px' }}
+                      role="button"
+                      tabIndex={0}
+                      onClick={() => {
+                        toggleHoverSocial(false);
+                      }}
+                      onKeyPress={() => {
+                        toggleHoverSocial(false);
+                      }}
+                    >
+                      <Link href={sa.url}>
+                        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                        <a target="_blank">{sa.label}</a>
+                      </Link>
                     </div>
                   ))}
                 </div>
@@ -233,23 +277,41 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
               {t('header.bio')}
             </a>
           </Link>
-          {LANGUAGES.map((l) => (
-            <div
-              key={l.id}
-              className="mb-2 text-xs leading-4 uppercase"
-              style={{ letterSpacing: '0.6px' }}
-              role="button"
-              tabIndex={0}
-              onClick={() => {
-                toggleHover(false);
-              }}
-              onKeyPress={() => {
-                toggleHover(false);
-              }}
-            >
-              <LanguageSwitcher lang={l.lang}>{l.label}</LanguageSwitcher>
+          {SOCIAL_ACCOUNTS.map((sa) => (
+            <div>
+              <Link href={sa.url}>
+                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                <a
+                  className="mb-2 text-xs leading-4 uppercase last:mb-0"
+                  style={{ letterSpacing: '0.6px' }}
+                  target="_blank"
+                >
+                  {sa.label}
+                </a>
+              </Link>
             </div>
           ))}
+          <div className="h-full">
+            <div className="flex flex-col justify-end h-full">
+              {LANGUAGES.map((l) => (
+                <div
+                  key={l.id}
+                  className="mb-2 text-xs leading-4 uppercase"
+                  style={{ letterSpacing: '0.6px' }}
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => {
+                    toggleHoverLanguage(false);
+                  }}
+                  onKeyPress={() => {
+                    toggleHoverLanguage(false);
+                  }}
+                >
+                  <LanguageSwitcher lang={l.lang}>{l.label}</LanguageSwitcher>
+                </div>
+              ))}
+            </div>
+          </div>
         </Menu>
         {!pathname.includes('contact') && (
           <Link href={`/contact?lang=${lang}`}>

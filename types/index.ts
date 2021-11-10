@@ -16,3 +16,9 @@ export interface LanguageObject {
   label: string;
   lang: string;
 }
+
+export interface SocialAccount {
+  id: string;
+  label: string;
+  url: string;
+}

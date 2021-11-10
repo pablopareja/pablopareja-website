@@ -12,7 +12,8 @@
     "header": {
       "contact": "CONTACTO",
       "media": "MEDIA",
-      "bio": "BIO"
+      "bio": "BIO",
+      "social": "SOCIAL"
     },
     "homepage": {
       "playAnchorLink": "REPRODUCIR",

@@ -63,7 +63,7 @@ const Media: React.FC = () => {
           </div>
         </div>
         <Desktop includeBiggerScreens>
-          <div className="relative flex w-full my-24 text-2xl text-white">
+          <div className="relative flex w-full mt-24 text-2xl text-white">
             <div className="flex flex-col mr-4" style={{ width: '60%' }}>
               <div
                 className="flex mb-6 ml-32"
@@ -157,6 +157,100 @@ const Media: React.FC = () => {
               </div>
             </div>
           </div>
+          <div className="relative flex w-full mt-4 mb-24 text-2xl text-white">
+            <div className="flex flex-col mr-4" style={{ width: '40%' }}>
+              <div
+                className="flex mb-6 ml-32"
+                role="button"
+                tabIndex={0}
+                onClick={() =>
+                  openImageModal({
+                    src: '/images/PabloParejaSmilingBehindPiano.jpg',
+                    alt: 'Pablo Pareja smiling behind a piano',
+                  })
+                }
+                onKeyPress={() =>
+                  openImageModal({
+                    src: '/images/PabloParejaSmilingBehindPiano.jpg',
+                    alt: 'Pablo Pareja smiling behind a piano',
+                  })
+                }
+              >
+                <img
+                  src="/images/PabloParejaSmilingBehindPiano.jpg"
+                  alt="Pablo Pareja smiling behind a piano"
+                />
+              </div>
+              <div
+                className="flex"
+                role="button"
+                tabIndex={0}
+                onClick={() =>
+                  openImageModal({
+                    src: '/images/PabloParejaPlayingPianoConcert.jpg',
+                    alt: 'Pablo Pareja playing piano in a concert',
+                  })
+                }
+                onKeyPress={() =>
+                  openImageModal({
+                    src: '/images/PabloParejaPlayingPianoConcert.jpg',
+                    alt: 'Pablo Pareja playing piano in a concert',
+                  })
+                }
+              >
+                <img
+                  src="/images/PabloParejaPlayingPianoConcert.jpg"
+                  alt="Pablo Pareja playing piano in a concert"
+                />
+              </div>
+            </div>
+            <div className="flex flex-col" style={{ width: '60%' }}>
+              <div
+                className="flex mb-5 mr-32"
+                role="button"
+                tabIndex={0}
+                onClick={() =>
+                  openImageModal({
+                    src: '/images/PabloParejaStudioSinging.jpg',
+                    alt: 'Pablo Pareja singing at a recording studio',
+                  })
+                }
+                onKeyPress={() =>
+                  openImageModal({
+                    src: '/images/PabloParejaStudioSinging.jpg',
+                    alt: 'Pablo Pareja singing at a recording studio',
+                  })
+                }
+              >
+                <img
+                  src="/images/PabloParejaStudioSinging.jpg"
+                  alt="Pablo Pareja singing at a recording studio"
+                />
+              </div>
+              <div
+                className="flex"
+                role="button"
+                tabIndex={0}
+                onClick={() =>
+                  openImageModal({
+                    src: '/images/PabloParejaStandingGuitar.jpg',
+                    alt: 'Pablo Pareja holding a guitar in a recording studio',
+                  })
+                }
+                onKeyPress={() =>
+                  openImageModal({
+                    src: '/images/PabloParejaStandingGuitar.jpg',
+                    alt: 'Pablo Pareja holding a guitar in a recording studio',
+                  })
+                }
+              >
+                <img
+                  src="/images/PabloParejaStandingGuitar.jpg"
+                  alt="Pablo Pareja holding a guitar at a recording studio"
+                />
+              </div>
+            </div>
+          </div>
           <Modal
             size="wide"
             title=""
@@ -186,6 +280,14 @@ const Media: React.FC = () => {
             <img
               src="/images/mediaBackground.jpg"
               alt="Pablo Pareja playing guitar at a recording studio"
+            />
+            <img
+              src="/images/PabloParejaStudioSinging_mobile.jpg"
+              alt="Pablo Pareja singing at a recording studio"
+            />
+            <img
+              src="/images/PabloParejaStandingGuitar_mobile.jpg"
+              alt="Pablo Pareja standing with a guitar at a recording studio"
             />
           </div>
         </Mobile>
