@@ -34,8 +34,8 @@ export const FOLLOW_ME_LINKS: SocialMediaLink[] = [
   },
   {
     label: 'Youtube Music',
-    url: '',
-    visible: false,
+    url: 'https://music.youtube.com/playlist?list=OLAK5uy_mbVjwfv7s7aTkh3o20ArAX3Mw5OryyYuY',
+    visible: true,
   },
   {
     label: 'Amazon',
