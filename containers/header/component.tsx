@@ -164,7 +164,7 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
                   {LANGUAGES.map((l) => (
                     <div
                       key={l.id}
-                      className="mb-2 text-xs leading-4 uppercase"
+                      className="mb-2 text-xs leading-4 uppercase last:mb-0"
                       style={{ letterSpacing: '0.6px' }}
                       role="button"
                       tabIndex={0}
