@@ -1,6 +1,6 @@
 const en = require('./translations.en.json');
 const es = require('./translations.es.json');
-const de = require('./translationa.de.json');
+const de = require('./translations.de.json');
 
 const i18n = {
   translations: {
