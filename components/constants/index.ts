@@ -12,6 +12,11 @@ export const LANGUAGES: LanguageObject[] = [
     label: 'Español',
     lang: 'es',
   },
+  {
+    id: Language.German,
+    label: 'Deutsch',
+    lang: 'de',
+  },
   // {
   //   id: Language.French,
   //   label: 'Français',
