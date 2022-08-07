@@ -4,7 +4,7 @@ import { SocialMediaLink } from './types';
 export const FOLLOW_ME_LINKS: SocialMediaLink[] = [
   {
     label: 'Instagram',
-    url: 'https://www.instagram.com/pabloparejatobes/',
+    url: 'https://www.instagram.com/pabloparejamusic/',
     visible: true,
   },
   {
@@ -14,7 +14,7 @@ export const FOLLOW_ME_LINKS: SocialMediaLink[] = [
   },
   {
     label: 'Tik Tok',
-    url: 'https://www.tiktok.com/@pablopareja',
+    url: 'https://www.tiktok.com/@pabloparejamusic',
     visible: true,
   },
   {
