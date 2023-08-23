@@ -40,12 +40,12 @@ export const SOCIAL_ACCOUNTS: SocialAccount[] = [
   {
     id: 'instagram',
     label: 'Instagram',
-    url: 'https://www.instagram.com/pabloparejatobes/',
+    url: 'https://www.instagram.com/pabloparejamusic/',
   },
   {
     id: 'tiktok',
     label: 'Tik Tok',
-    url: 'https://www.tiktok.com/@pablopareja',
+    url: 'https://www.tiktok.com/@pabloparejamusic',
   },
   {
     id: 'twitter',
