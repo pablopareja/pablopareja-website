@@ -1,35 +1,35 @@
 {
   "i18n": {
-    "description": "Pablo Pareja is a Spanish jazz singer and composer based in Málaga, Spain.",
+    "description": "Pablo Pareja ist ein spanischer Jazzsänger und Komponist aus Málaga, Spanien.",
     "title": "Pablo Pareja",
     "contact": {
       "name": "NAME",
       "email": "EMAIL",
-      "message": "MESSAGE",
-      "contact": "CONTACT",
-      "pageTitle": "Contact"
+      "message": "NACHRICHT",
+      "contact": "KONTAKT",
+      "pageTitle": "Kontakt"
     },
     "footer": {
       "home": "HOME",
       "media": "MEDIA",
       "bio": "BIO",
-      "contact": "CONTACT",
-      "followMe": "FOLLOW ME:"
+      "contact": "KONTAKT",
+      "followMe": "FOLGE MIR:"
     },
     "header": {
-      "contact": "CONTACT",
+      "contact": "KONTAKT",
       "media": "MEDIA",
-      "bio": "BIO",
+      "bio": "ÜBER MICH",
       "social": "SOCIAL"
     },
     "homepage": {
-      "playAnchorLink": "PLAY",
-      "listenOnMessage": "Listen on ",
+      "playAnchorLink": "ABSPIELEN",
+      "listenOnMessage": "Hören Sie auf",
       "bio": "<p className=\"mb-8\"> Pablo Pareja starts studying piano in Granada focusing first on classical and contemporary classical music. Later on he starts developing an interest in film scoring and he composes his first solo piano piece at the age of 17. Years later he studies vocal technique, music theory, jazz, and composition in Rome and Málaga; attending also various international jazz seminars where he has the chance to meet renowned artists like <a className=\"hover:underline\" href=\"https://www.viktorijapilatovic.com/\" target=\"_blank\" rel=\"noreferrer\" > Viktorija Pilatovic</a>, <a className=\"hover:underline\" href=\"https://deborahcarter.com/\" target=\"_blank\" rel=\"noreferrer\" > Deborah Carter</a>, <a className=\"hover:underline\" href=\"https://en.wikipedia.org/wiki/Roberta_Gambarini\" target=\"_blank\" rel=\"noreferrer\" > Roberta Gambarini</a>, <a className=\"hover:underline\" href=\"https://en.wikipedia.org/wiki/Norma_Winstone\" target=\"_blank\" rel=\"noreferrer\" > Norma Winstone</a>, <a className=\"hover:underline\" href=\"http://www.michaelkanan.com/\" target=\"_blank\" rel=\"noreferrer\" > Michael Kanan</a>, and <a className=\"hover:underline\" href=\"https://en.wikipedia.org/wiki/Aaron_Goldberg\" target=\"_blank\" rel=\"noreferrer\" > Aarong Goldberg</a> among others. </p> <p>More recently Pablo has been performing with the Big Band from the Málaga Jazz Association as the lead singer as well as has participated in various festivals and concerts such as the Jazzahara festival or the International Jazz day Torremolinos. He is currently studying advanced composition with <a className=\"hover:underline\" href=\"https://josecarra.com/\" target=\"_blank\" rel=\"noreferrer\" > José Carra </a> and focuses on the creation of his first EP both as a composer and singer. For that he is collaborating with <a href=\"https://www.juangaliardomusic.com/\" target=\"_blank\">Juan Galiardo</a> (piano), <a href=\"https://www.instagram.com/iwillplaywithmytoys/\" target=\"_blank\">Juanma Nieto</a> (drums and percussion), and <a href=\"https://www.facebook.com/markus.schneider.9674\" target=\"_blank\">Markus Schneider</a> (double bass).</p>",
       "pageTitle": "Pablo Pareja"
     },
     "player": {
-      "play": "PLAY",
+      "play": "ABSPIELEN",
       "pause": "PAUSE"
     }
   }
