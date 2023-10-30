@@ -17,7 +17,7 @@
     "@types/react-modal": "^3.16.2",
     "autoprefixer": "10.4.15",
     "classnames": "^2.3.2",
-    "eslint": "^8.47.0",
+    "eslint": "^8.2.0",
     "eslint-config-next": "13.4.19",
     "eslint-config-prettier": "^9.0.0",
     "framer-motion": "^10.16.1",
@@ -47,6 +47,10 @@
     "@types/react-burger-menu": "^2.8.3",
     "@types/react-howler": "^5.2.0",
     "@types/react-modal-image": "^2.6.2",
-    "babel-plugin-inline-react-svg": "^2.0.2"
+    "@typescript-eslint/eslint-plugin": "^6.9.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "babel-plugin-inline-react-svg": "^2.0.2",
+    "eslint-config-airbnb-typescript": "17.1.0",
+    "eslint-plugin-import": "^2.25.3"
   }
 }

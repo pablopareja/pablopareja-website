@@ -1,18 +1,12 @@
-"use client";
+'use client';
 
-import ClientOnly from "@/utils/ClientOnly";
-import { useResponsive } from "@/utils/useResponsive";
-import React, { useState } from "react";
-import ModalImage from "react-modal-image";
-import Header from "../header";
-
-const DEFAULT_IMAGE = { src: "/images/mediaBackground.jpg", alt: "Media" };
+import ClientOnly from '@/utils/ClientOnly';
+import { useResponsive } from '@/utils/useResponsive';
+import React from 'react';
+import ModalImage from 'react-modal-image';
+import Header from '../header';
 
 export const MediaContent: React.FC = () => {
-  const [modalImage, setModalImage] = useState<{
-    src: string;
-    alt: string;
-  }>(DEFAULT_IMAGE);
   const { useMd, useSm } = useResponsive();
 
   return (
@@ -25,7 +19,7 @@ export const MediaContent: React.FC = () => {
               className="absolute top-0 left-0 object-cover w-full h-full"
               src="/images/mediaBackground.jpg"
               alt="Media"
-              style={{ filter: "grayscale(100%)", zIndex: -1 }}
+              style={{ filter: 'grayscale(100%)', zIndex: -1 }}
             />
           )}
           {useSm({}) && (
@@ -33,12 +27,12 @@ export const MediaContent: React.FC = () => {
               className="absolute top-0 left-0 object-cover w-full h-full"
               src="/images/mediaBackground_mobile.png"
               alt="Media"
-              style={{ filter: "grayscale(100%)", zIndex: -1 }}
+              style={{ filter: 'grayscale(100%)', zIndex: -1 }}
             />
           )}
           <div
             className="absolute top-0 left-0 flex items-center justify-center w-full h-full text-3xl leading-9 text-white"
-            style={{ letterSpacing: "18px" }}
+            style={{ letterSpacing: '18px' }}
           >
             MEDIA
           </div>
@@ -46,7 +40,7 @@ export const MediaContent: React.FC = () => {
         {useMd({ includeBiggerScreens: true }) && (
           <>
             <div className="relative flex w-full mt-24 text-2xl text-white">
-              <div className="flex flex-col mr-4" style={{ width: "60%" }}>
+              <div className="flex flex-col mr-4" style={{ width: '60%' }}>
                 <div className="flex mb-6 ml-32">
                   <ModalImage
                     small="/images/PabloParejaPiano.jpg"
@@ -64,10 +58,7 @@ export const MediaContent: React.FC = () => {
                   />
                 </div>
               </div>
-              <div
-                className="flex flex-col pr-32 pt-36"
-                style={{ width: "40%" }}
-              >
+              <div className="flex flex-col pr-32 pt-36" style={{ width: '40%' }}>
                 <div className="flex mb-5" role="button">
                   <ModalImage
                     small="/images/Pablo-Pareja-jazz-Zahara.jpg"
@@ -87,7 +78,7 @@ export const MediaContent: React.FC = () => {
               </div>
             </div>
             <div className="relative flex w-full mt-4 mb-24 text-2xl text-white">
-              <div className="flex flex-col mr-4" style={{ width: "40%" }}>
+              <div className="flex flex-col mr-4" style={{ width: '40%' }}>
                 <div className="flex mb-6 ml-32">
                   <ModalImage
                     small="/images/PabloParejaSmilingBehindPiano.jpg"
@@ -105,7 +96,7 @@ export const MediaContent: React.FC = () => {
                   />
                 </div>
               </div>
-              <div className="flex flex-col" style={{ width: "60%" }}>
+              <div className="flex flex-col" style={{ width: '60%' }}>
                 <div className="flex mb-5 mr-32">
                   <ModalImage
                     small="/images/PabloParejaStudioSinging.jpg"
