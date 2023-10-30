@@ -63,7 +63,6 @@ export const ContactContent: React.FC = () => {
       </form>
     </div>
   );
-  console.log('DiagonalIcon', DiagonalIcon);
   return (
     <div>
       <ClientOnly>

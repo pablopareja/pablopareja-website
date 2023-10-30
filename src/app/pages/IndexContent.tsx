@@ -36,7 +36,6 @@ export const IndexContent = () => {
 
   useEffect(() => {
     if (window.location.hash === '#bio') {
-      console.log('Hey!');
       setTimeout(() => bioDivRef.current?.scrollIntoView(), 200);
     }
   }, []);
