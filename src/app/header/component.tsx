@@ -11,9 +11,9 @@ import { slide as Menu } from 'react-burger-menu';
 // utils
 
 // types
+import { LANGUAGES, SOCIAL_ACCOUNTS } from '@/constants';
 import { setIsWhiteBackground } from '@/store/common/slice';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
-import { LANGUAGES, SOCIAL_ACCOUNTS } from '@/types';
 import ClientOnly from '@/utils/ClientOnly';
 import { useResponsive } from '@/utils/useResponsive';
 import { HeaderProps } from './types';
