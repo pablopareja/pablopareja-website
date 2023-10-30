@@ -9,7 +9,7 @@ interface LanguageState {
 
 // Define the initial state using that type
 const initialState: LanguageState = {
-  languageSelected: LANGUAGES.find((l) => l.id === Language.English),
+  languageSelected: LANGUAGES[Language.English],
 };
 
 export const languageSlice = createSlice({

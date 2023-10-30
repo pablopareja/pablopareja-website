@@ -15,7 +15,7 @@ import { setIsWhiteBackground } from '@/store/common/slice';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import ClientOnly from '@/utils/ClientOnly';
 import { useResponsive } from '@/utils/useResponsive';
-import { LANGUAGES, SOCIAL_ACCOUNTS } from '../../constants';
+import { AvailableLanguages, LANGUAGES, SOCIAL_ACCOUNTS } from '../../constants';
 import { HeaderProps } from './types';
 
 const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
@@ -28,7 +28,7 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
   const { t } = useTranslation();
   const { useMd, useSm } = useResponsive();
 
-  const currentLangLabel = LANGUAGES.find((l) => l.lang === lang)?.label;
+  const currentLangLabel = LANGUAGES[lang as AvailableLanguages].label;
 
   const subMenuAnimate = {
     enter: {
@@ -162,7 +162,7 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
                       'border-black': black,
                     })}
                   >
-                    {LANGUAGES.map((l) => (
+                    {Object.values(LANGUAGES).map((l) => (
                       <div
                         key={l.id}
                         className="mb-2 text-xs leading-4 uppercase last:mb-0"
@@ -291,7 +291,7 @@ const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
               ))}
               <div className="h-full">
                 <div className="flex flex-col justify-end h-full">
-                  {LANGUAGES.map((l) => (
+                  {Object.values(LANGUAGES).map((l) => (
                     <div
                       key={l.id}
                       className="mb-2 text-xs leading-4 uppercase"

@@ -1,18 +1,18 @@
 import { Language, LanguageObject, SocialAccount } from '@/types';
 
-// eslint-disable-next-line import/prefer-default-export
-export const LANGUAGES: LanguageObject[] = [
-  {
+export type AvailableLanguages = Language.English | Language.Spanish | Language.German;
+export const LANGUAGES: Record<AvailableLanguages, LanguageObject> = {
+  [Language.English]: {
     id: Language.English,
     label: 'English',
     lang: 'en',
   },
-  {
+  [Language.Spanish]: {
     id: Language.Spanish,
     label: 'Español',
     lang: 'es',
   },
-  {
+  [Language.German]: {
     id: Language.German,
     label: 'Deutsch',
     lang: 'de',
@@ -29,7 +29,7 @@ export const LANGUAGES: LanguageObject[] = [
   //   id: Language.Portuguese,
   //   label: 'Portugues',
   // },
-];
+};
 
 export const SOCIAL_ACCOUNTS: SocialAccount[] = [
   {
