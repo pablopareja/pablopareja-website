@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { debounce } from "lodash";
-import { useTranslation } from "next-export-i18n";
-import { FC, useEffect, useRef, useState } from "react";
-import ReactHowler from "react-howler";
-import Slider from "react-input-slider";
+import { debounce } from 'lodash';
+import { useTranslation } from 'next-export-i18n';
+import { FC, useEffect, useRef, useState } from 'react';
+import ReactHowler from 'react-howler';
+import Slider from 'react-input-slider';
 // icons
-import PauseIcon from "../../svgs/ui/pause.svg";
-import PlayIcon from "../../svgs/ui/play.svg";
+import PauseIcon from '../../svgs/ui/pause.svg';
+import PlayIcon from '../../svgs/ui/play.svg';
 
 // types
 
@@ -21,7 +21,7 @@ export const Player: FC<PlayerProps> = ({ src, autoPlay }: PlayerProps) => {
   const [playing, setPlaying] = useState(autoPlay);
   const [dragging, setDragging] = useState(false);
   const { t } = useTranslation();
-  const player = useRef<any>();
+  const player = useRef<ReactHowler>(null);
 
   useEffect(() => {
     if (autoPlay) {
@@ -49,7 +49,7 @@ export const Player: FC<PlayerProps> = ({ src, autoPlay }: PlayerProps) => {
 
   const updatePlayerPosition = debounce((value) => {
     setPlaying(false);
-    player.current.seek(value);
+    player.current?.seek(value);
     setPlaying(true);
   }, 300);
 
@@ -61,17 +61,8 @@ export const Player: FC<PlayerProps> = ({ src, autoPlay }: PlayerProps) => {
   const secElapsed = Math.floor(position - minElapsed * 60);
 
   return (
-    <div
-      className="flex w-full font-sans text-sm leading-5"
-      style={{ letterSpacing: "5.6px" }}
-    >
-      <ReactHowler
-        src={src}
-        playing={playing}
-        ref={player}
-        html5={true}
-        preload={true}
-      />
+    <div className="flex w-full font-sans text-sm leading-5" style={{ letterSpacing: '5.6px' }}>
+      <ReactHowler src={src} playing={playing} ref={player} html5={true} preload={true} />
       <div
         className="flex items-center"
         style={{ minWidth: 84 }}
@@ -85,21 +76,21 @@ export const Player: FC<PlayerProps> = ({ src, autoPlay }: PlayerProps) => {
           {playing && <PauseIcon />}
         </div>
         <div>
-          {!playing && t("player.play")}
-          {playing && t("player.pause")}
+          {!playing && t('player.play')}
+          {playing && t('player.pause')}
         </div>
       </div>
       <div className="flex items-center w-full px-8">
         <Slider
           styles={{
             track: {
-              width: "100%",
-              height: "1px",
+              width: '100%',
+              height: '1px',
             },
             thumb: {
-              height: "12px",
-              width: "12px",
-              border: "solid 1px lightgrey",
+              height: '12px',
+              width: '12px',
+              border: 'solid 1px lightgrey',
             },
           }}
           axis="x"
