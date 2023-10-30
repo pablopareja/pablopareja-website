@@ -1,4 +1,4 @@
-import { Language, LanguageObject, SocialAccount } from '../types';
+import { Language, LanguageObject, SocialAccount } from '@/types';
 
 export const LANGUAGES: LanguageObject[] = [
   {
