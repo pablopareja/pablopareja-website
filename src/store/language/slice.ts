@@ -1,6 +1,6 @@
-import { LANGUAGES } from '@/constants';
 import { Language, LanguageObject } from '@/types';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { LANGUAGES } from '../../constants';
 
 // Define a type for the slice state
 interface LanguageState {

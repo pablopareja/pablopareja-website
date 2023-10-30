@@ -8,6 +8,6 @@ export const GAPage = (url: string): void => {
 };
 
 // log specific events happening.
-export const GAEvent = ({ action, params }): void => {
+export const GAEvent = ({ action, params }: { action: string; params: object }): void => {
   window.gtag('event', action, params);
 };

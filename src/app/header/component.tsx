@@ -11,11 +11,11 @@ import { slide as Menu } from 'react-burger-menu';
 // utils
 
 // types
-import { LANGUAGES, SOCIAL_ACCOUNTS } from '@/constants';
 import { setIsWhiteBackground } from '@/store/common/slice';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import ClientOnly from '@/utils/ClientOnly';
 import { useResponsive } from '@/utils/useResponsive';
+import { LANGUAGES, SOCIAL_ACCOUNTS } from '../../constants';
 import { HeaderProps } from './types';
 
 const Header: FC<HeaderProps> = ({ black }: HeaderProps) => {
