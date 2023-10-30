@@ -1,6 +1,6 @@
-import { LANGUAGES } from "@/constants";
-import { Language, LanguageObject } from "@/types";
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { LANGUAGES } from '@/constants';
+import { Language, LanguageObject } from '@/types';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 // Define a type for the slice state
 interface LanguageState {
@@ -13,7 +13,7 @@ const initialState: LanguageState = {
 };
 
 export const languageSlice = createSlice({
-  name: "language",
+  name: 'language',
   initialState,
   reducers: {
     setLanguageSelected: (state, action: PayloadAction<LanguageObject>) => ({
