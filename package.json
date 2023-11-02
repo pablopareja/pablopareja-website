@@ -1,5 +1,6 @@
 {
-  "name": "pablopareja-github.io",
+  "name": "pablopareja.github.io",
+  "homepage": "pablopareja.github.io",
   "version": "0.1.0",
   "scripts": {
     "dev": "next dev",
