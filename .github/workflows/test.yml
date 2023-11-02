@@ -12,13 +12,13 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Read .nvmrc
-        run: echo "##[set-output name=NVMRC;]$(cat .nvmrc)"
         id: nvm
+        run: echo "NVMRC=$(cat .nvmrc)" >> $GITHUB_ENV
 
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: '${{ steps.nvm.outputs.NVMRC }}'
+          node-version: ${{ env.NVMRC }}
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
